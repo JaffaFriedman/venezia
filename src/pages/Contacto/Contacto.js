@@ -18,7 +18,7 @@ const Contacto = () => {
                     <TextField id="nombre" label="Nombre" variant="outlined" />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '39ch' },  }}   noValidate autoComplete="off">
-                    <TextField id="correo" label="Correo Electronico" variant="outlined"  helperText="Será nombre de su cuenta"/>
+                    <TextField id="correo" label="Correo Electronico" variant="outlined" />
                     <TextField id="telefono" label="Teléfono" variant="outlined" />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' }   }}   noValidate autoComplete="off">
@@ -29,7 +29,7 @@ const Contacto = () => {
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },   }}   noValidate autoComplete="off">
                     <Button variant="contained" startIcon={<SaveIcon />}
-                             href="/login"> Enviar
+                             href="/"> Enviar
                     </Button>                   
                 </Box>
             </div>

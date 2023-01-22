@@ -2,7 +2,6 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
 import Reservas from './pages/Reservas/Reservas';
 import Locales from './pages/Locales/Locales';
 import Menu from './pages/Menu/Menu';
@@ -38,10 +37,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}> 
             <Route path='/' element={<Home />} /> 
-            <Route path='/login' element={<Login />} /> 
             <Route path='/menu' element={<Menu />} /> 
             <Route path='/platos' element={<Platos />} /> 
-
             <Route path='/menu' element={<Menu />} /> 
             <Route path='/postres' element={<Postres />} /> 
             <Route path='/pastas' element={<Pastas />} /> 
