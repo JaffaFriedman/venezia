@@ -1,0 +1,5 @@
+npx create-react-app VeneziaRistoranti
+npm install bootstrap@5.2.3 ?????
+npm install react-bootstrap bootstrap
+npm i react-router-dom
+npm install @mui/material @emotion/react @emotion/styled
