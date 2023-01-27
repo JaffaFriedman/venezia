@@ -2,8 +2,8 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-function Platos({parentToChild} ) {
-   
+
+function Platos({categoria} ) {
     let listaPlatos=[
       {id: 11,categoria: 'Carnes', descripcion: 'Carne grillada', precio: '$18.000', url: 'https://www.shutterstock.com/image-photo/closeup-view-delicious-grilled-beef-600w-1559572103.jpg'},
       {id: 12,categoria: 'Carnes', descripcion: 'Filet mingnon', precio: '$17.500', url: 'https://www.shutterstock.com/image-photo/filet-mignon-mashed-potatoes-pomegranate-600w-1657050667.jpg'},
@@ -23,17 +23,14 @@ function Platos({parentToChild} ) {
       {id: 28,categoria: 'Pastas', descripcion: 'Rissoto de mariscos', precio: '$15.500', url: 'https://www.shutterstock.com/image-photo/risotto-italian-foodof-shrimp-food-600w-2113967600.jpg'},
  
     ];
-    let menuId='Pastas';
- 
- 
-    const platos = listaPlatos.filter(c => c.categoria===menuId);
+    
+    const platos = listaPlatos.filter(c => c.categoria==={categoria});
     
 
     return (
       <Container >
-        <div>
-        {parentToChild}
-        </div>
+        
+        <h1>Platos {categoria}</h1>
       <Row xs={2} md={3} lg={4} className="g-4 text-center" >  
       { platos.map((p)=> 
       ( <Col key={p.id}>

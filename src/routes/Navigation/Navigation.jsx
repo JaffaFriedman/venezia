@@ -1,14 +1,15 @@
 
 import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
- 
+import  Chef from '../../images/Chef.png'
+
 const  Navigation = () => {
   return (
   <div className="bg-dark ps-5">
         <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="/">
                     <img
-                      src="https://www.shutterstock.com/image-vector/italian-chef-cook-italy-flag-600w-1812716602.jpg"
+                      src={Chef}
                       width="70"
                       height="70"
                       className="d-inline-block align-top"
@@ -31,13 +32,14 @@ const  Navigation = () => {
                     </NavDropdown>
                     <Nav.Link as={NavLink} to="/reservas">Reservas</Nav.Link>
                     <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
-                    <Nav.Link as={NavLink} to="/prueba">Prueba</Nav.Link>
-
+                    <NavDropdown title='Admin'> 
+                      <NavDropdown.Item as={NavLink} to="/AdminReservas">Admin Reservas</NavDropdown.Item>
+                      <NavDropdown.Item as={NavLink} to="/prueba">Prueba </NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
         </Navbar>
   </div>
-    
   );
 }
 

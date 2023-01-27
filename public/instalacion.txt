@@ -4,3 +4,10 @@ npm install react-bootstrap bootstrap
 npm i react-router-dom
 npm install @mui/material @emotion/react @emotion/styled
 npm i @mui/icons-material
+
+npm install --save firebase
+npm run snippets
+npm install -g firebase-tools
+
+Por hacer
+To download Node.js visit https://nodejs.org/en/download/.

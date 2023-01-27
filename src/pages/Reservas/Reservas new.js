@@ -1,7 +1,3 @@
-import { db } from "../../config/Firebase";
-import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
@@ -15,37 +11,55 @@ import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import SaveIcon from '@mui/icons-material/Save';
 import TextField from '@mui/material/TextField';
+import { db } from "../../config/Firebase";
+import { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
 
-const Reservas  = () => {
+let hoy= new Date();
+const inicio=hoy.toISOString().substring(0,10);
+hoy.setDate(hoy.getDate() + 60);
+let fin= hoy.toISOString().substring(0,10);
+
 
 const valorIncial = {
-  restoran: '',
-  comensales: '',
-  fecha: '',
-  horario: '',
-  nombre: '',
-  correo: '',
-  telefono: '',
-  mensaje: ''
+    restoran: '',
+    comensal: '',
+    fecha: inicio,
+    horario: '',
+    nombre: '',
+    correo: '',
+    telefono: '',
+    mensaje: ''
 }
+  
+const Reservas  = () => {
+  let reserva=valorIncial;
+  
+  const [comensal, setComensal] =  useState('');
+  const handleChangeComensal = (event: SelectChangeEvent) => {
+    setComensal(event.target.value);
+  };
 
-const [user, setUser] = useState(valorIncial);
-
+  const [restoran, setRestoran] =  useState('');
+  const handleChangeRestoran = (event: ChangeEvent<HTMLInputElement>) => {
+    setRestoran(event.target.value);
+  };
+ 
+ 
+ const [user, setUser] = useState(valorIncial);
 
  // funciones controladoras del form
- 
- /*
+
  const cathInputs = (e) => {
      e.preventDefault()
      const {name, value} = e.target;
-     setUser({
+    setUser({
          ...user,
          [name]: value
      })
  }
-*/ 
 
-const reservarMesa = async(e) => {
+ const reservarMesa = async(e) => {
      e.preventDefault()
      try {
          const collectionRef = collection(db, 'Reservas')
@@ -57,51 +71,6 @@ const reservarMesa = async(e) => {
      }
      setUser({...valorIncial})
  }
-
-let hoy= new Date();
-const inicio=hoy.toISOString().substring(0,10);
-hoy.setDate(hoy.getDate() + 60);
-let fin= hoy.toISOString().substring(0,10);
-
- 
-  const [restoran, setRestoran] =  useState('');
-  const handleChangeRestoran = (event: ChangeEvent<HTMLInputElement>) => {
-    setRestoran(event.target.value);
-    user.restoran=event.target.value;
-  };
-
-  const [comensales, setComensales] =  useState('');
-  const handleChangeComensales = (event: SelectChangeEvent) => {
-    setComensales(event.target.value);
-    user.comensales=event.target.value;
-  };
-
-  const handleChangeFecha = (event: ChangeEvent<HTMLInputElement>) => {
-    user.fecha=event.target.value;
-  };
- 
-  const handleChangeHorario = (event: ChangeEvent<HTMLInputElement>) => {
-    user.horario=event.target.value;
-  };
-
-  const handleChangeNombre = (event: ChangeEvent<HTMLInputElement>) => {
-    user.nombre=event.target.value;
-  };
- 
-  const handleChangeCorreo = (event: ChangeEvent<HTMLInputElement>) => {
-    user.correo=event.target.value;
-  };
-
-
-  const handleChangeTelefono = (event: ChangeEvent<HTMLInputElement>) => {
-    user.telefono=event.target.value;
-  };
-
- 
-  const handleChangeMensaje = (event: ChangeEvent<HTMLInputElement>) => {
-    user.mensaje=event.target.value;
-  };
-
 
   return (
     <div>
@@ -122,19 +91,19 @@ let fin= hoy.toISOString().substring(0,10);
                       value={restoran}
                       onChange={handleChangeRestoran }
                     >
-                      <FormControlLabel value="Borde Rio" control={<Radio />} label="Borde Rio" />
-                      <FormControlLabel value="El Bosque" control={<Radio />} label="El Bosque" />
-                      <FormControlLabel value="Las Condes" control={<Radio />} label="Las Condes" />
+                      <FormControlLabel value="1" control={<Radio />} label="Borde Rio" />
+                      <FormControlLabel value="2" control={<Radio />} label="El Bosque" />
+                      <FormControlLabel value="3" control={<Radio />} label="Las Condes" />
                     </RadioGroup>
                 </FormControl>
                 <FormControl fullWidth>
-                  <InputLabel id="comensalesLavel">Tamaño de la mesa</InputLabel>
+                  <InputLabel id="comensalLavel">Tamaño de la mesa</InputLabel>
                     <Select
-                      labelId="comensalesLabel"
-                      id="comensales"
-                      value={comensales}
+                      labelId="comensalLabel"
+                      id="comensal"
+                      value={comensal}
                       label="Número de Personas"
-                      onChange={handleChangeComensales}
+                      onChange={handleChangeComensal}
                     >
                       <MenuItem value={2}>2 Personas</MenuItem>
                       <MenuItem value={3}>3 Personas</MenuItem>
@@ -146,27 +115,27 @@ let fin= hoy.toISOString().substring(0,10);
                     </Select>
                 </FormControl>
                 <label for="fecha">Fecha</label>
-                  <input id="fecha" type="date"  value={inicio}  min={inicio} max={fin} onChange={handleChangeFecha}> 
+                  <input id="fecha" type="date"  value={inicio}  min={inicio} max={fin}> 
                 </input>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                   <InputLabel htmlFor="horario-select">Horario</InputLabel>
-                  <Select native defaultValue="" id="horario-select" onChange={handleChangeHorario} label="Grouping">
+                  <Select native defaultValue="" id="horario-select" label="Grouping">
                     <option aria-label="None" value="" />
                     <optgroup label="Almuerzo">
-                      <option value={'12:30'}>12:30</option>
-                      <option value={'13:00'}>13:00</option>
-                      <option value={'13:30'}>13:30</option>
-                      <option value={'14:00'}>14:00</option>
-                      <option value={'14:30'}>14:30</option>
-                      <option value={'15:00'}>15:00</option>
+                      <option value={1}>12:30</option>
+                      <option value={2}>13:00</option>
+                      <option value={3}>13:30</option>
+                      <option value={4}>14:00</option>
+                      <option value={5}>14:30</option>
+                      <option value={5}>15:00</option>
                     </optgroup>
                     <optgroup label="Cena">
-                      <option value={'19:00'}>19:00</option>
-                      <option value={'19:30'}>19:30</option>
-                      <option value={'20:00'}>20:00</option>
-                      <option value={'20:30'}>20:30</option>
-                      <option value={'21:00'}>21:00</option>
-                      <option value={'21:30'}>21:30</option>
+                      <option value={3}>19:00</option>
+                      <option value={4}>19:30</option>
+                      <option value={3}>20:00</option>
+                      <option value={4}>20:30</option>
+                      <option value={3}>21:00</option>
+                      <option value={4}>21:30</option>
                     </optgroup>
                   </Select>
                 </FormControl>
@@ -177,22 +146,24 @@ let fin= hoy.toISOString().substring(0,10);
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch', marginTop: 2,}   }}   
                     noValidate autoComplete="off">
                     <TextField id="nombre" label="Nombre" variant="outlined"
-                    onChange={handleChangeNombre} />
+                    onChange={cathInputs} value={user.nombre} />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '24ch' },  }}   
                     noValidate autoComplete="off">
                     <TextField id="correo" label="Correo Electronico" variant="outlined"  
-                     onChange={handleChangeCorreo} />
+                     onChange={cathInputs} value={user.correo}/>
                     <TextField id="telefono" label="Teléfono" variant="outlined" 
-                     onChange={handleChangeTelefono} />
+                     onChange={cathInputs} value={user.telefono}/>
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   
+                     noValidate autoComplete="off">
                     <TextField id="mensaje" label="Mensaje" variant="outlined"  multiline rows={6}
-                    onChange={handleChangeMensaje} />
+                    onChange={cathInputs} value={user.mensaje}/>
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch',  mt: 1 }   }}>
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch',  mt: 1 }   }}   
+                    noValidate autoComplete="off">
                     <Button variant="contained" startIcon={<SaveIcon />}
-                            onClick={reservarMesa}> Confirma Reserva
+                                      onSubmit={reservarMesa}> Confirma Reserva
                     </Button>
                 </Box>
             </Grid>
