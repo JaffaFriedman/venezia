@@ -22,18 +22,11 @@ const  Navigation = () => {
                      <Nav.Link as={NavLink} to="/blog">Blog</Nav.Link>
                     <Nav.Link as={NavLink} to="/locales">Locales</Nav.Link>
                     <Nav.Link as={NavLink} to="/menu">Menu</Nav.Link>
-                    <NavDropdown title='Menu'> 
-                      <NavDropdown.Item as={NavLink} to="/ensaladas">Entradas y Antipastos</NavDropdown.Item>
-                      <NavDropdown.Item as={NavLink} to="/pescados">Pescados y Mariscos </NavDropdown.Item>
-                      <NavDropdown.Item as={NavLink} to="/carnes">Carnes y Aves</NavDropdown.Item>
-                      <NavDropdown.Item as={NavLink} to="/pastas">Pastas y Rissoto </NavDropdown.Item>
-                      <NavDropdown.Item as={NavLink} to="/postres">Postres </NavDropdown.Item>
-                      <NavDropdown.Item as={NavLink} to="/vinos">Vinos y Bebidas </NavDropdown.Item>
-                    </NavDropdown>
                     <Nav.Link as={NavLink} to="/reservas">Reservas</Nav.Link>
                     <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
                     <NavDropdown title='Admin'> 
-                      <NavDropdown.Item as={NavLink} to="/AdminReservas">Admin Reservas</NavDropdown.Item>
+                      <NavDropdown.Item as={NavLink} to="/reservasadm">Revisar Reservas</NavDropdown.Item>
+                      <NavDropdown.Item as={NavLink} to="/contactosadm">Contactos</NavDropdown.Item>
                       <NavDropdown.Item as={NavLink} to="/prueba">Prueba </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>

@@ -1,0 +1,169 @@
+https://firebase.google.com/docs/firestore/manage-data/transactions?hl=es-419&authuser=0
+
+import { collection, addDoc } from "firebase/firestore"; 
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+-----------------
+import { doc, setDoc } from "firebase/firestore"; 
+
+// Add a new document in collection "cities"
+await setDoc(doc(db, "cities", "LA"), {
+  name: "Los Angeles",
+  state: "CA",
+  country: "USA"
+});
+
+import { doc, setDoc } from "firebase/firestore"; 
+
+const cityRef = doc(db, 'cities', 'BJ');
+setDoc(cityRef, { capital: true }, { merge: true });
+
+
+import { doc, deleteDoc } from "firebase/firestore";
+
+await deleteDoc(doc(db, "cities", "DC"));
+class City {
+    constructor (name, state, country ) {
+        this.name = name;
+        this.state = state;
+        this.country = country;
+    }
+    toString() {
+        return this.name + ', ' + this.state + ', ' + this.country;
+    }
+}
+
+// Firestore data converter
+const cityConverter = {
+    toFirestore: (city) => {
+        return {
+            name: city.name,
+            state: city.state,
+            country: city.country
+            };
+    },
+    fromFirestore: (snapshot, options) => {
+        const data = snapshot.data(options);
+        return new City(data.name, data.state, data.country);
+    }
+};
+import { doc, setDoc } from "firebase/firestore"; 
+
+// Set with cityConverter
+const ref = doc(db, "cities", "LA").withConverter(cityConverter);
+await setDoc(ref, new City("Los Angeles", "CA", "USA"));
+
+
+import { doc, setDoc } from "firebase/firestore"; 
+
+await setDoc(doc(db, "cities", "new-city-id"), data);
+import { collection, addDoc } from "firebase/firestore"; 
+
+// Add a new document with a generated id.
+const docRef = await addDoc(collection(db, "cities"), {
+  name: "Tokyo",
+  country: "Japan"
+});
+console.log("Document written with ID: ", docRef.id);
+
+
+import { doc, updateDoc } from "firebase/firestore";
+
+const washingtonRef = doc(db, "cities", "DC");
+
+// Set the "capital" field of the city 'DC'
+await updateDoc(washingtonRef, {
+  capital: true
+});
+
+import { updateDoc, serverTimestamp } from "firebase/firestore";
+
+const docRef = doc(db, 'objects', 'some-id');
+
+// Update the timestamp field with the value from the server
+const updateTimestamp = await updateDoc(docRef, {
+    timestamp: serverTimestamp()
+});
+
+import { doc, setDoc, updateDoc } from "firebase/firestore"; 
+
+// Create an initial document to update.
+const frankDocRef = doc(db, "users", "frank");
+await setDoc(frankDocRef, {
+    name: "Frank",
+    favorites: { food: "Pizza", color: "Blue", subject: "recess" },
+    age: 12
+});
+
+// To update age and favorite color:
+await updateDoc(frankDocRef, {
+    "age": 13,
+    "favorites.color": "Red"
+});
+
+------------------------
+// Add a second document with a generated ID.
+import { addDoc, collection } from "firebase/firestore"; 
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Alan",
+    middle: "Mathison",
+    last: "Turing",
+    born: 1912
+  });
+
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+
+import { collection, getDocs } from "firebase/firestore"; 
+
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+  console.log(`${doc.id} => ${doc.data()}`);
+});
+
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://support.google.com/firebase/answer/7015592
+const firebaseConfig = {
+    FIREBASE_CONFIGURATION
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+
+import { runTransaction } from "firebase/firestore";
+
+try {
+  await runTransaction(db, async (transaction) => {
+    const sfDoc = await transaction.get(sfDocRef);
+    if (!sfDoc.exists()) {
+      throw "Document does not exist!";
+    }
+
+    const newPopulation = sfDoc.data().population + 1;
+    transaction.update(sfDocRef, { population: newPopulation });
+  });
+  console.log("Transaction successfully committed!");
+} catch (e) {
+  console.log("Transaction failed: ", e);
+}

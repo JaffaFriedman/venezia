@@ -32,7 +32,7 @@ const Prueba = () => {
         e.preventDefault()
 
         try {
-            const collectionRef = collection(db, 'ReservasP')
+            const collectionRef = collection(db, 'Reservas')
             await addDoc(collectionRef, {
                 ...user
             })

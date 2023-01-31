@@ -1,67 +1,53 @@
+import * as React from 'react';
+import AspectRatio from '@mui/joy/AspectRatio';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+import Card from '@mui/joy/Card';
+import IconButton from '@mui/joy/IconButton';
+import Typography from '@mui/joy/Typography';
+import BookmarkAdd from '@mui/icons-material/BookmarkAddOutlined';
 
-import {useState, useEffect} from 'react';
-import {db} from '../../config/Firebase'
-import {collection, getDocs } from "firebase/firestore";
-import Card from "react-bootstrap/Card";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-const Prueba = () => {
-  const [menu, setMenu] = useState([]);
-  
- 
- 
-
-
-  useEffect(() => {
-    const getMenu = async () => {
-      try {
-        const collectionRef = collection(db, "PlatosArray");
-        const response = await getDocs(collectionRef);
-
-        //const docs = response.docs.map((doc) => {
-          const data = response.doc.data(); // firestore guarda la informacion de cada documento en data()
-        //  data.id = doc.id;
-        //  return data;
-        // });
-
-        setMenu(data);
-      
-      } catch (error) {
-         
-      }
-    };
-
-    getMenu();
-    console.log(menu);
-  }, []);
- 
-  //menu.map((p) => ( for(i=0;i<40;i++) {Platos.push(p[i]) }  ) );
-  console.log('Platos 333 _____________',  );
-  console.log(menu);
+export default function BasicCard() {
   return (
-        <Container >
-        <h1>Platos  </h1>
-        <Row xs={2} md={3} lg={4} className="g-4 text-center" >  
-        { menu.map((p) =>
-        ( <Col key={p[0].id}>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img    variant="dark" src={p[0].url}  height={'200'}  />
-            <Card.Body   >
-              <Card.Title>{p[0].descripcion}</Card.Title>
-              <Card.Text>
-              {p[0].precio}
-              </Card.Text>
-            </Card.Body>
-            </Card>
-          </Col>
-        ))
-        } 
-        </Row>
-        </Container>
+    <Card variant="outlined" sx={{ width: 320 }}>
+      <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
+        Yosemite National Park
+      </Typography>
+      <Typography level="body2">April 24 to May 02, 2021</Typography>
+      <IconButton
+        aria-label="bookmark Bahamas Islands"
+        variant="plain"
+        color="neutral"
+        size="sm"
+        sx={{ position: 'absolute', top: '0.5rem', right: '0.5rem' }}
+      >
+        <BookmarkAdd />
+      </IconButton>
+      <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+        <img
+          src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
+          srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
+          loading="lazy"
+          alt=""
+        />
+      </AspectRatio>
+      <Box sx={{ display: 'flex' }}>
+        <div>
+          <Typography level="body3">Total price:</Typography>
+          <Typography fontSize="lg" fontWeight="lg">
+            $2,900
+          </Typography>
+        </div>
+        <Button
+          variant="solid"
+          size="sm"
+          color="primary"
+          aria-label="Explore Bahamas Islands"
+          sx={{ ml: 'auto', fontWeight: 600 }}
+        >
+          Explore
+        </Button>
+      </Box>
+    </Card>
   );
-};
-
-
-
-export default Prueba;
+}

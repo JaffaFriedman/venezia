@@ -32,7 +32,9 @@ const valorIncial = {
     mensaje: ''
 }
   
+
 const Reservas  = () => {
+  const [reserva, setReserva] = useState(valorIncial);
   let reserva=valorIncial;
   
   const [comensal, setComensal] =  useState('');
@@ -46,7 +48,6 @@ const Reservas  = () => {
   };
  
  
- const [user, setUser] = useState(valorIncial);
 
  // funciones controladoras del form
 

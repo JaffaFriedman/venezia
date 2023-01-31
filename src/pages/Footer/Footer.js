@@ -6,7 +6,7 @@ import facebook from '../../images/facebook.png';
 import instagram from '../../images/instagram.png';
 import twitter from '../../images/twitter.png';
 import lazo from '../../images/lazo.png';
-
+import tarjetas from '../../images/tarjetas.png';
 
 
 const Footer = () => {
@@ -16,30 +16,24 @@ const Footer = () => {
   return (
     <div className="bg-dark text-bg-dark">  
         <Row className="mt-2 pt-3">
-              <Col className="ps-5 col-4">        
+              <Col className="ps-5 col-6">        
               <ul className="list-unstyled">
                     <li>DATOS DE CONTACTO</li>    
-                    <li> contacto@dekko.cl</li>
-                    <li>Lunes a Domingo: 12:00-24:00</li>
-                    <li>Dirección: Isabel la Católica 7350, Las Condes</li>
-                    <li>Reservas y Whatsapp: +569 3251 3550</li>
+                    <li>contacto@venezzia.cl</li>
+                    <li>Abierto de Lunes a Domingo de 12:00-24:00</li>
+                    <li>Whatsapp: +569 3251 3550</li>
                     </ul>
               </Col>
-              <Col  className='pt-3' >
-              <h5>SIGUENOS EN</h5>     
+              <Col>
+              <img src={lazo} width="400" height="100" className="d-inline-block" alt="Logo"/>
+              </Col> 
+              <Col  className='pt-3' >   
               <a href={urlFacebook}  className="text-decoration-none"><img width={40} height={40} alt="facebook" src={facebook} /> </a>
               <a href={urlInstagram}  className="text-decoration-none"><img width={40} height={40} alt="instagram" src={instagram} /> </a>
               <a href={urlTwitter}  className="text-decoration-none"><img width={40} height={40} alt="twitter" src={twitter} /> </a>
+              <img src={tarjetas} width="150" height="30" className="d-inline-block align-top" alt="Logo"/>
               </Col>
-              <Col>
-              <p><img
-                      src={lazo}
-                      width="500"
-                      height="125"
-                      className="d-inline-block"
-                      alt="Logo"
-                    /></p>
-              </Col>
+
 
 
           </Row> 

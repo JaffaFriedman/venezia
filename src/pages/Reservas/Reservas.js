@@ -13,8 +13,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
-import SaveIcon from '@mui/icons-material/Save';
 import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
 
 const Reservas  = () => {
 
@@ -29,33 +29,21 @@ const valorIncial = {
   mensaje: ''
 }
 
-const [user, setUser] = useState(valorIncial);
+const [reserva, setReserva] = useState([]);
 
 
- // funciones controladoras del form
- 
- /*
- const cathInputs = (e) => {
-     e.preventDefault()
-     const {name, value} = e.target;
-     setUser({
-         ...user,
-         [name]: value
-     })
- }
-*/ 
 
 const reservarMesa = async(e) => {
      e.preventDefault()
      try {
-         const collectionRef = collection(db, 'Reservas')
+         const collectionRef = collection(db, restoran)
          await addDoc(collectionRef, {
-             ...user
+             ...reserva
          })
      } catch (error) {
          console.log(error)
      }
-     setUser({...valorIncial})
+     setReserva({...valorIncial})
  }
 
 let hoy= new Date();
@@ -67,52 +55,53 @@ let fin= hoy.toISOString().substring(0,10);
   const [restoran, setRestoran] =  useState('');
   const handleChangeRestoran = (event: ChangeEvent<HTMLInputElement>) => {
     setRestoran(event.target.value);
-    user.restoran=event.target.value;
+    reserva.restoran=event.target.value;
   };
 
   const [comensales, setComensales] =  useState('');
   const handleChangeComensales = (event: SelectChangeEvent) => {
     setComensales(event.target.value);
-    user.comensales=event.target.value;
+    reserva.comensales=event.target.value;
   };
 
   const handleChangeFecha = (event: ChangeEvent<HTMLInputElement>) => {
-    user.fecha=event.target.value;
+    reserva.fecha=event.target.value;
   };
  
   const handleChangeHorario = (event: ChangeEvent<HTMLInputElement>) => {
-    user.horario=event.target.value;
+    reserva.horario=event.target.value;
   };
 
   const handleChangeNombre = (event: ChangeEvent<HTMLInputElement>) => {
-    user.nombre=event.target.value;
+    reserva.nombre=event.target.value;
   };
  
   const handleChangeCorreo = (event: ChangeEvent<HTMLInputElement>) => {
-    user.correo=event.target.value;
+    reserva.correo=event.target.value;
   };
 
 
   const handleChangeTelefono = (event: ChangeEvent<HTMLInputElement>) => {
-    user.telefono=event.target.value;
+    reserva.telefono=event.target.value;
   };
 
  
   const handleChangeMensaje = (event: ChangeEvent<HTMLInputElement>) => {
-    user.mensaje=event.target.value;
+    reserva.mensaje=event.target.value;
   };
 
 
   return (
     <div>
-        <div className="bg-dark text-bg-dark p-2 ps-5  mb-2 text-center">
-            <h3> Reservas </h3>
+        <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
+            <h3> Bienvenido a nuestra página de Reservas </h3>
+            <h6>puede realizar su reserva aqui.</h6>
         </div>
         <Box sx={{ flexGrow: 1 ,}}>
         <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} columns={{ xs: 1, sm: 1, md: 2, lg: 2 }} display="flex" justifyContent="center">
             <Grid item  >
               <Box component="form" 
-                      sx={{ '& > :not(style)': { m: 1, width: '40ch' }, 
+                      sx={{ '& > :not(style)': { m: 1, width: '24ch' }, 
                       display: 'flex', flexDirection: 'column', alignItems: 'center', }}   noValidate autoComplete="off">
                 <FormControl>
                     <FormLabel id="restoranLabel">Seleccione el Restaurant</FormLabel>
@@ -170,8 +159,12 @@ let fin= hoy.toISOString().substring(0,10);
                     </optgroup>
                   </Select>
                 </FormControl>
-
               </Box>
+              <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '28ch',  mt: 1 }   }}>
+                    <Button variant="contained" endIcon={<SendIcon />} onClick={reservarMesa}> 
+                              Confirma Reserva
+                    </Button>
+                </Box>
             </Grid>
             <Grid item >
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch', marginTop: 2,}   }}   
@@ -187,14 +180,10 @@ let fin= hoy.toISOString().substring(0,10);
                      onChange={handleChangeTelefono} />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
-                    <TextField id="mensaje" label="Mensaje" variant="outlined"  multiline rows={6}
+                    <TextField id="mensaje" label="Mensaje" variant="outlined"  multiline rows={8}
                     onChange={handleChangeMensaje} />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch',  mt: 1 }   }}>
-                    <Button variant="contained" startIcon={<SaveIcon />}
-                            onClick={reservarMesa}> Confirma Reserva
-                    </Button>
-                </Box>
+
             </Grid>
         </Grid>
         </Box>
