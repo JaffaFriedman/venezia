@@ -1,53 +1,76 @@
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { db } from "../../config/Firebase";
+import { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
 import * as React from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import Card from '@mui/joy/Card';
-import IconButton from '@mui/joy/IconButton';
-import Typography from '@mui/joy/Typography';
-import BookmarkAdd from '@mui/icons-material/BookmarkAddOutlined';
+import Input from '@mui/joy/Input';
 
-export default function BasicCard() {
+function Prueba() {
+  
+ 
+     const initContacto = {
+            nombre: '',
+            correo: '',
+            telefono: '',
+            asunto: '',
+            mensaje: ''
+      } 
+    
+    const [contacto, setContacto] = useState('');
+    
+        
+    const  handleInputChange = (e) => {
+      const name = e.target.name;
+      const value = e.target.value;
+      setContacto({
+        ...contacto,
+         [name]: value,
+      });
+      console.log(contacto)
+    }
+
+       const registrarContacto = async(e) => {
+        e.preventDefault()
+        try {
+            const collectionRef = collection(db, 'Contactos')
+            await addDoc(collectionRef, {
+                contacto
+            })
+        } catch (error) {
+            console.log(error)
+        }
+       
+        setContacto(initContacto);
+    } 
+
+      
   return (
-    <Card variant="outlined" sx={{ width: 320 }}>
-      <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
-        Yosemite National Park
-      </Typography>
-      <Typography level="body2">April 24 to May 02, 2021</Typography>
-      <IconButton
-        aria-label="bookmark Bahamas Islands"
-        variant="plain"
-        color="neutral"
-        size="sm"
-        sx={{ position: 'absolute', top: '0.5rem', right: '0.5rem' }}
-      >
-        <BookmarkAdd />
-      </IconButton>
-      <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
-        <img
-          src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-          srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
-          loading="lazy"
-          alt=""
-        />
-      </AspectRatio>
-      <Box sx={{ display: 'flex' }}>
-        <div>
-          <Typography level="body3">Total price:</Typography>
-          <Typography fontSize="lg" fontWeight="lg">
-            $2,900
-          </Typography>
-        </div>
-        <Button
-          variant="solid"
-          size="sm"
-          color="primary"
-          aria-label="Explore Bahamas Islands"
-          sx={{ ml: 'auto', fontWeight: 600 }}
-        >
-          Explore
-        </Button>
-      </Box>
-    </Card>
+      <Form>
+            
+            <Input name='nombre' type="text" placeholder="Ingrese el nombre" onChange={(e)=>handleInputChange(e)} value={contacto.nombre} />
+         
+          <Form.Group className="mb-3" controlId="correo">
+              <Form.Label>Correo</Form.Label>
+              <Form.Control name='correo' type="text" placeholder="Ingrese el correo"  onChange={(e)=>handleInputChange(e)} value={contacto.correo} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="telefono">
+              <Form.Label>Telefono</Form.Label>
+              <Form.Control name='telefono' type="text" placeholder="Ingrese el telefono" onChange={(e)=>handleInputChange(e)} value={contacto.telefono}  />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="asunto">
+              <Form.Label>Asunto</Form.Label>
+              <Form.Control name='asunto' type="text" placeholder="Ingrese el asunto" onChange={(e)=>handleInputChange(e)} value={contacto.asunto}  />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="mensaje">
+              <Form.Label>Mensaje</Form.Label>
+              <Form.Control name='mensaje' type="text" placeholder="Ingrese el mensaje"  onChange={(e)=>handleInputChange(e)} value={contacto.mensaje}/>
+          </Form.Group>
+          <Button variant="primary" type="submit"  onClick={registrarContacto} >
+              Grabar
+          </Button>
+      </Form>
   );
 }
+
+export default Prueba;

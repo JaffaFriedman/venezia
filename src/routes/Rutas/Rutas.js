@@ -5,7 +5,7 @@ import Reservas from '../../pages/Reservas/Reservas';
 import Locales from '../../pages/Locales/Locales';
 import Menu from '../../pages/Menu/Menu';
 import Platos from '../../pages/Platos/Platos';
-import Blog from '../../pages/Blog/Blog';
+import Nosotros from '../../pages/Nosotros/Nosotros';
 import Contacto from '../../pages/Contacto/Contacto';
 import Prueba from '../../pages/Prueba/Prueba';
 import Contactosadm from '../../pages/Admin/Contactosadm/Contactosadm';
@@ -23,7 +23,7 @@ function Rutas() {
             <Route path='/platos' element={<Platos categoria={categoria}/>} /> 
             <Route path='/reservas' element={<Reservas />} />  
             <Route path='/locales' element={<Locales />} />  
-            <Route path='/blog' element={<Blog />} />       
+            <Route path='/nosotros' element={<Nosotros />} />       
             <Route path='/contacto' element={<Contacto />} /> 
             <Route path='/prueba' element={<Prueba />} />  
             <Route path='/contactosadm' element={<Contactosadm />} />  

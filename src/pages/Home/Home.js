@@ -1,28 +1,30 @@
 import Carousel from 'react-bootstrap/Carousel';
-
 const Home = () => {
-  
-
+ 
   let urls=[
-{url:'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmVuZXppYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', descripcion:'Gondolas tradicionales'},
-{url:'https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1633&q=80',descripcion:'Venezia'},
-{url:'https://images.unsplash.com/photo-1558271736-cd043ef2e855?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',descripcion:'Ciudad de Venezia'},
-{url:'https://images.unsplash.com/photo-1519112232436-9923c6ba3d26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8VmVuZWNpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',descripcion:'Interior de nuestro restaurant'},
-{url:'https://www.shutterstock.com/shutterstock/photos/1721872819/display_1500/stock-photo-pasta-assortment-of-italian-pasta-dishes-including-spaghetti-bolognese-penne-with-chicken-1721872819.jpg',descripcion:'Pastas'},
-{url:'https://www.shutterstock.com/image-photo/view-grand-canal-stunning-baroque-600w-155638679.jpg',descripcion:'Grand canal'},
-{url:'https://www.shutterstock.com/image-photo/cozy-old-street-trastevere-rome-600w-525414181.jpg',descripcion:'Calle Trastevera Eoma'},
-]
+    {url:'/home/HOME01.jpg', descripcion:'Gondolas en Venecia'},
+    {url:'/home/HOME02.jpg', descripcion:'Ristoranti Manquehue'},
+    {url:'/home/HOME03.jpg', descripcion:'Ristoranti Apoquindo'},
+    {url:'/home/HOME01.jpg', descripcion:'Gondolas en Venecia'},
+    {url:'/home/HOME04.jpg', descripcion:'Ristoranti El Bosque'},
+    {url:'/home/HOME05.jpg', descripcion:'Ristoranti El Bosque'},
+];
+
  return (
  
-        <Carousel className="bg-dark text-bg-dark pb-2 ps-5  mb-1" >
+ <div>
+        <div className="bg-dark text-bg-dark pb-2 ps-5   text-center">
+            <h1> RISTORANTI VENEZIA </h1>
+         </div> 
+        <Carousel className="bg-dark text-bg-dark pb-2 ps-5 " >
         { urls.map((p)=>
           ( 
             <Carousel.Item>
-            <img
+          <img
               className="d-block w-auto justify-content-center ps-5"
-              style={{ height: '600px' }}
-              src={p.url}
+              style={{ height: '550px' }}
               alt={p.descripcion}
+              src ={p.url}
             />
             <Carousel.Caption>
               <h5>{p.descripcion}</h5>
@@ -31,7 +33,12 @@ const Home = () => {
                ) )
               }
       </Carousel>
-  
+      <div className="bg-dark text-bg-dark pt-2 pb-2 ps-5 text-center">
+            <h3> EN SANTIAGO DESDE 1960</h3>
+            <p>Somos una familia Italiana, que por generaciones hemos tenido un restoran en Venecia. </p>
+            <p> Nuestro único propósito es que día a día usted traer a Chile los mismos sabores y calidad de nuestro restoran en Italia.</p>
+         </div>
+      </div>  
     )
 }
 

@@ -5,23 +5,25 @@ import { collection, addDoc } from "firebase/firestore";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
+import Select  from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import SendIcon from '@mui/icons-material/Send';
-
+import SaveIcon from '@mui/icons-material/Save';
 const Reservas  = () => {
 
-const valorIncial = {
+let hoy= new Date();
+const inicio=hoy.toISOString().substring(0,10);
+hoy.setDate(hoy.getDate() + 60);
+let fin= hoy.toISOString().substring(0,10);
+
+
+
+const initReserva = {
   restoran: '',
   comensales: '',
-  fecha: '',
+  fecha: inicio,
   horario: '',
   nombre: '',
   correo: '',
@@ -29,69 +31,35 @@ const valorIncial = {
   mensaje: ''
 }
 
-const [reserva, setReserva] = useState([]);
-
-
-
-const reservarMesa = async(e) => {
-     e.preventDefault()
-     try {
-         const collectionRef = collection(db, restoran)
-         await addDoc(collectionRef, {
-             ...reserva
-         })
-     } catch (error) {
-         console.log(error)
-     }
-     setReserva({...valorIncial})
- }
-
-let hoy= new Date();
-const inicio=hoy.toISOString().substring(0,10);
-hoy.setDate(hoy.getDate() + 60);
-let fin= hoy.toISOString().substring(0,10);
-
+const [reserva, setReserva] = useState('');
+const  handleInputChange = (e) => {
+  const name = e.target.name;
+  const value = e.target.value;
+  setReserva({
+    ...reserva,
+     [name]: value,
+  });
  
-  const [restoran, setRestoran] =  useState('');
-  const handleChangeRestoran = (event: ChangeEvent<HTMLInputElement>) => {
-    setRestoran(event.target.value);
-    reserva.restoran=event.target.value;
-  };
-
-  const [comensales, setComensales] =  useState('');
-  const handleChangeComensales = (event: SelectChangeEvent) => {
-    setComensales(event.target.value);
-    reserva.comensales=event.target.value;
-  };
-
-  const handleChangeFecha = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.fecha=event.target.value;
-  };
- 
-  const handleChangeHorario = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.horario=event.target.value;
-  };
-
-  const handleChangeNombre = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.nombre=event.target.value;
-  };
- 
-  const handleChangeCorreo = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.correo=event.target.value;
-  };
+}
 
 
-  const handleChangeTelefono = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.telefono=event.target.value;
-  };
+const registrarReserva = async(e) => {
+  e.preventDefault()
+  try {
+      const collectionRef = collection(db, 'Reservas')
+      await addDoc(collectionRef, {
+        reserva
+      })
+  } catch (error) {
+      console.log(error)
+  } 
+  console.log(reserva); 
+  setReserva(initReserva);
+} 
 
- 
-  const handleChangeMensaje = (event: ChangeEvent<HTMLInputElement>) => {
-    reserva.mensaje=event.target.value;
-  };
 
 
-  return (
+return (
     <div>
         <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
             <h3> Bienvenido a nuestra página de Reservas </h3>
@@ -103,43 +71,38 @@ let fin= hoy.toISOString().substring(0,10);
               <Box component="form" 
                       sx={{ '& > :not(style)': { m: 1, width: '24ch' }, 
                       display: 'flex', flexDirection: 'column', alignItems: 'center', }}   noValidate autoComplete="off">
-                <FormControl>
-                    <FormLabel id="restoranLabel">Seleccione el Restaurant</FormLabel>
-                    <RadioGroup
-                      aria-labelledby="restoranLabelp"
-                      name="restoran-group"
-                      value={restoran}
-                      onChange={handleChangeRestoran }
-                    >
-                      <FormControlLabel value="Borde Rio" control={<Radio />} label="Borde Rio" />
-                      <FormControlLabel value="El Bosque" control={<Radio />} label="El Bosque" />
-                      <FormControlLabel value="Las Condes" control={<Radio />} label="Las Condes" />
-                    </RadioGroup>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <InputLabel htmlFor="restoran-select">Restoran</InputLabel>
+                  <Select native defaultValue="" name="restoran"  onChange={(e)=>handleInputChange(e)} value={reserva.restoran} label="Grouping">
+                  <option aria-label="None" value="" />
+                    <optgroup label="Seleccione el restoran">
+                      <option value={'Apoquindo'}>Restoran Apoquindo</option>
+                      <option value={'Manquehue'}>Restoran Manquehue</option>
+                      <option value={'El Bosque'}>Restoran El Bosque</option>
+                    </optgroup>
+                  </Select>
                 </FormControl>
-                <FormControl fullWidth>
-                  <InputLabel id="comensalesLavel">Tamaño de la mesa</InputLabel>
-                    <Select
-                      labelId="comensalesLabel"
-                      id="comensales"
-                      value={comensales}
-                      label="Número de Personas"
-                      onChange={handleChangeComensales}
-                    >
-                      <MenuItem value={2}>2 Personas</MenuItem>
-                      <MenuItem value={3}>3 Personas</MenuItem>
-                      <MenuItem value={4}>4 Personas</MenuItem>
-                      <MenuItem value={5}>5 Personas</MenuItem>
-                      <MenuItem value={6}>6 Personas</MenuItem>
-                      <MenuItem value={7}>7 Personas</MenuItem>
-                      <MenuItem value={8}>8 Personas</MenuItem>
-                    </Select>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <InputLabel htmlFor="horario-select">Comensales</InputLabel>
+                  <Select native defaultValue="" name="comensales"  onChange={(e)=>handleInputChange(e)} value={reserva.comensales} label="Grouping">
+                  <option aria-label="None" value="" />
+                    <optgroup label="Seleccione el número de personas">
+                      <option value={'2'}>2 Personas</option>
+                      <option value={'3'}>3 Personas</option>
+                      <option value={'4'}>4 Personas</option>
+                      <option value={'5'}>5 Personas</option>
+                      <option value={'6'}>6 Personas</option>
+                      <option value={'7'}>7 Personas</option>
+                      <option value={'8'}>8 Personas</option>  
+                      </optgroup>                   
+                  </Select>
                 </FormControl>
                 <label for="fecha">Fecha</label>
-                  <input id="fecha" type="date"  value={inicio}  min={inicio} max={fin} onChange={handleChangeFecha}> 
+                  <input name="fecha" type="date"  min={inicio} max={fin}  onChange={(e)=>handleInputChange(e)} value={reserva.fecha} > 
                 </input>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                   <InputLabel htmlFor="horario-select">Horario</InputLabel>
-                  <Select native defaultValue="" id="horario-select" onChange={handleChangeHorario} label="Grouping">
+                  <Select native defaultValue="" name="horario"  onChange={(e)=>handleInputChange(e)} value={reserva.horario}  label="Grouping">
                     <option aria-label="None" value="" />
                     <optgroup label="Almuerzo">
                       <option value={'12:30'}>12:30</option>
@@ -160,28 +123,29 @@ let fin= hoy.toISOString().substring(0,10);
                   </Select>
                 </FormControl>
               </Box>
-              <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '28ch',  mt: 1 }   }}>
-                    <Button variant="contained" endIcon={<SendIcon />} onClick={reservarMesa}> 
-                              Confirma Reserva
-                    </Button>
+ 
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },   }}   noValidate autoComplete="off">
+                    <Button variant="contained" startIcon={<SaveIcon />}   onClick={registrarReserva} > Enviar
+                    </Button>                   
                 </Box>
+             
             </Grid>
             <Grid item >
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch', marginTop: 2,}   }}   
                     noValidate autoComplete="off">
-                    <TextField id="nombre" label="Nombre" variant="outlined"
-                    onChange={handleChangeNombre} />
+                    <TextField name="nombre" label="Nombre" variant="outlined"  
+                    onChange={(e)=>handleInputChange(e)} value={reserva.nombre}  />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '24ch' },  }}   
                     noValidate autoComplete="off">
-                    <TextField id="correo" label="Correo Electronico" variant="outlined"  
-                     onChange={handleChangeCorreo} />
-                    <TextField id="telefono" label="Teléfono" variant="outlined" 
-                     onChange={handleChangeTelefono} />
+                    <TextField name="correo" label="Correo Electronico" variant="outlined"  
+                      onChange={(e)=>handleInputChange(e)} value={reserva.correo} />
+                    <TextField name="telefono" label="Teléfono" variant="outlined" 
+                    onChange={(e)=>handleInputChange(e)} value={reserva.telefono}  />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
-                    <TextField id="mensaje" label="Mensaje" variant="outlined"  multiline rows={8}
-                    onChange={handleChangeMensaje} />
+                    <TextField name="mensaje" label="Mensaje" variant="outlined"  multiline rows={8}
+                    onChange={(e)=>handleInputChange(e)} value={reserva.mensaje}  />
                 </Box>
 
             </Grid>

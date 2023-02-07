@@ -1,7 +1,7 @@
 
 import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
-import  Chef from '../../images/Chef.png'
+import  Chef from '../../images/navigation/Chef.png'
 
 const  Navigation = () => {
   return (
@@ -19,7 +19,7 @@ const  Navigation = () => {
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                     <Nav.Link as={NavLink} to="/blog">Blog</Nav.Link>
+                     <Nav.Link as={NavLink} to="/nosotros">Nosotros</Nav.Link>
                     <Nav.Link as={NavLink} to="/locales">Locales</Nav.Link>
                     <Nav.Link as={NavLink} to="/menu">Menu</Nav.Link>
                     <Nav.Link as={NavLink} to="/reservas">Reservas</Nav.Link>

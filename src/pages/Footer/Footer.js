@@ -2,11 +2,11 @@ import * as React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import facebook from '../../images/facebook.png';
-import instagram from '../../images/instagram.png';
-import twitter from '../../images/twitter.png';
-import lazo from '../../images/lazo.png';
-import tarjetas from '../../images/tarjetas.png';
+import facebook from '../../images/footer/facebook.png';
+import instagram from '../../images/footer/instagram.png';
+import twitter from '../../images/footer/twitter.png';
+import lazo from '../../images/footer/lazo.png';
+import tarjetas from '../../images/footer/tarjetas.png';
 
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
   let urlTwitter="https://twitter.com/?lang=es";
   return (
     <div className="bg-dark text-bg-dark">  
-        <Row className="mt-2 pt-3">
+        <Row className="pt-3">
               <Col className="ps-5 col-6">        
               <ul className="list-unstyled">
                     <li>DATOS DE CONTACTO</li>    

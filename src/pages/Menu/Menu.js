@@ -9,12 +9,12 @@ import Button from '@mui/material/Button';
 const Menu = ({categoria, setCategoria}) => {
 
   let categoriaMenu=[
-      {categoria: 'Ensaladas', descripcion: 'Ensaladas y Antipastos', url: 'https://www.shutterstock.com/image-photo/fresh-prosciutto-cheese-capers-close-600w-245276638.jpg'},
-      {categoria: 'Pescados', descripcion: 'Pescados',url: 'https://www.shutterstock.com/image-photo/parrot-fish-steak-600w-95619760.jpg'},
-      {categoria: 'Carnes', descripcion: 'Carnes y Aves' , url: 'https://www.shutterstock.com/image-photo/closeup-view-delicious-grilled-beef-600w-1559572103.jpg'},
-      {categoria: 'Pastas', descripcion: 'Pastas',url: 'https://www.shutterstock.com/image-photo/pasta-pappardelle-beef-ragout-sauce-600w-1494176960.jpg'},
-      {categoria: 'Postres', descripcion: 'Postres', precio: '8000', url: 'https://www.shutterstock.com/image-photo/tasteful-chocolate-pastry-mousse-isolated-600w-78632026.jpg'},
-      {categoria: 'Vinos', descripcion: 'Vinos y Bebidas', precio: '', url: 'https://www.shutterstock.com/image-photo/red-wine-glass-bunch-grapes-600w-284304515.jpg'},
+      {categoria: 'Ensaladas y Antipastos', descripcion: 'Ensaladas y Antipastos', url: '/menu/ENSALADAS01.jpg'},
+      {categoria: 'Carnes y Pescados', descripcion: 'Carnes y Pescados',url: '/menu/CARNES01.jpg'},
+      {categoria: 'Pastas', descripcion: 'Pastas',url: '/menu/PASTAS01.jpg'},
+      {categoria: 'Pizzas', descripcion: 'Pizzas' , url: '/menu/PIZZAS01.jpg'},
+      {categoria: 'Postres', descripcion: 'Postres', precio: '8000', url: '/menu/POSTRES01.jpg'},
+      {categoria: 'Vinos y Bebidas', descripcion: 'Vinos y Bebidas', precio: '', url: '/menu/VINOS01.jpg'},
   ];
  
     const navigate=useNavigate();
@@ -34,10 +34,10 @@ const Menu = ({categoria, setCategoria}) => {
         { categoriaMenu.map((p)=>
         ( <Col>    
             <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src={p.url}  height={'250'}/>
+            <Card.Img variant="top" src={p.url}  height={'240'}/>
             <Card.Body>
               <Card.Text>
-              <Button variant="outlined" onClick={() => handleCategoria(p.categoria)}>{p.categoria} </Button>
+              <Button variant="outlined" onClick={() => handleCategoria(p.categoria)}>{p.descripcion} </Button>
               </Card.Text>
             </Card.Body>
           </Card>
