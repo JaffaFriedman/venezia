@@ -10,7 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select  from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
 const Reservas  = () => {
 
 let hoy= new Date();
@@ -124,8 +124,12 @@ return (
                 </FormControl>
               </Box>
  
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },   }}   noValidate autoComplete="off">
-                    <Button variant="contained" startIcon={<SaveIcon />}   onClick={registrarReserva} > Enviar
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '30ch' },   }}   noValidate autoComplete="off">
+                    <Button variant="contained" 
+                      className="mt-3" 
+                      color="success"  
+                      startIcon={<SendIcon />}  
+                      onClick={registrarReserva} > Enviar
                     </Button>                   
                 </Box>
              

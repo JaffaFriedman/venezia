@@ -37,7 +37,13 @@ const Menu = ({categoria, setCategoria}) => {
             <Card.Img variant="top" src={p.url}  height={'240'}/>
             <Card.Body>
               <Card.Text>
-              <Button variant="outlined" onClick={() => handleCategoria(p.categoria)}>{p.descripcion} </Button>
+              <Button  
+              variant="contained" 
+              size="small" 
+              fullWidth={true}
+              className="mt-3" 
+              color="success" 
+              onClick={() => handleCategoria(p.categoria)}>{p.descripcion} </Button>
               </Card.Text>
             </Card.Body>
           </Card>

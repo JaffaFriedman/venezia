@@ -80,13 +80,13 @@ function Platos({categoria} ) {
       <Row xs={2} md={3} lg={4} className="g-4 text-center" >  
       { listaPlatos.filter((c) =>  c.categoria===categoria.toString()).map((p)=> 
       ( <Col key={p.id}>
-          <Card style={{ width: '18rem', height: '22rem'} }>
+          <Card style={{ width: '18rem', height: '20rem'} }>
           <Card.Img    variant="dark" src={p.url}  height={'200'}  />
           <Card.Body   >
-            <Card.Title>{p.descripcion}</Card.Title>
-            <Card.Text>
+            <Card.Text>{p.descripcion}</Card.Text>
+            <Card.Title>
             {p.precio}
-            </Card.Text>
+            </Card.Title>
           </Card.Body>
         </Card>
         </Col>
@@ -95,7 +95,11 @@ function Platos({categoria} ) {
       }
       </Row>
           <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '36ch',  mt: 1 }   }}>
-              <Button variant="contained" 
+              <Button  
+                      variant="contained" 
+                      size="small" 
+                      className="mt-3" 
+                      color="success"  
                        href='/menu'>Volver 
                </Button>
            </Box>

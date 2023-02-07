@@ -81,10 +81,15 @@ const Nosotros = () => {
             <h3> Sobre Nosotros </h3>
         </div>
         <Box sx={{ flexGrow: 1 ,}}>
-        <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} columns={{ xs: 1, sm: 1, md: 2, lg: 2 }} display="flex" justifyContent="center">
+        <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} 
+             columns={{ xs: 1, sm: 1, md: 2, lg: 2, xl: 2 }} display="flex" justifyContent="center">
             <Grid item >
               <ImageList
-                sx={{ width: 600, height: 500 }}
+                xs={{ width: 400, height: 400 }}
+                sx={{ width: 500, height: 500 }}
+                md={{ width: 600, height: 600 }}
+                lg={{ width: 700, height: 700 }}
+                xl={{ width: 900, height: 700 }}
                 variant="quilted"
                 cols={4}
                 rowHeight={121}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
 import { db } from "../../config/Firebase";
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
@@ -54,8 +54,7 @@ function Contacto () {
             <h3> Formulario de Contacto </h3>
             </div>
             <div className="m-5 text-center">
-      
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '39ch' },  }}   noValidate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' },  }}   noValidate autoComplete="off">
                     <TextField name="nombre" label="Nombre" onChange={(e)=>handleInputChange(e)} value={contacto.nombre}  variant="outlined" />
                 </Box>
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '39ch' },  }}   noValidate autoComplete="off">
@@ -68,8 +67,13 @@ function Contacto () {
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' }   }}   noValidate autoComplete="off">
                     <TextField name="mensaje" label="Mesaje" onChange={(e)=>handleInputChange(e)} value={contacto.mensaje}  variant="outlined"  multiline rows={6}/>
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },   }}   noValidate autoComplete="off">
-                    <Button variant="contained" startIcon={<SaveIcon />}   onClick={registrarContacto} > Enviar
+                
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '30ch' },   }}   noValidate autoComplete="off">
+                    <Button variant="contained"
+                        className="mt-3" 
+                        color="success"   
+                        startIcon={<SendIcon />}   
+                        onClick={registrarContacto} > Enviar
                     </Button>                   
                 </Box>
     

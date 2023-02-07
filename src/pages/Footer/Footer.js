@@ -1,42 +1,43 @@
 import * as React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-import facebook from '../../images/footer/facebook.png';
-import instagram from '../../images/footer/instagram.png';
-import twitter from '../../images/footer/twitter.png';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import lazo from '../../images/footer/lazo.png';
-import tarjetas from '../../images/footer/tarjetas.png';
-
-
+import EmailIcon from '@mui/icons-material/Email';
+import CallIcon from '@mui/icons-material/Call';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import Typography from '@mui/joy/Typography';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 const Footer = () => {
-  let urlFacebook="https://www.facebook.com/dekkochile?_ga=2.167551419.444347090.1673651620-1259506142.1671285130";
-  let urlInstagram="https://www.instagram.com/dekkochile/?_ga=2.234637339.444347090.1673651620-1259506142.1671285130";
+  let urlFacebook="https://www.facebook.com/profile.php?id=100068703835576";
+  let urlInstagram="https://www.instagram.com/explore/tags/venezia/";
   let urlTwitter="https://twitter.com/?lang=es";
   return (
-    <div className="bg-dark text-bg-dark">  
-        <Row className="pt-3">
-              <Col className="ps-5 col-6">        
-              <ul className="list-unstyled">
-                    <li>DATOS DE CONTACTO</li>    
-                    <li>contacto@venezzia.cl</li>
-                    <li>Abierto de Lunes a Domingo de 12:00-24:00</li>
-                    <li>Whatsapp: +569 3251 3550</li>
-                    </ul>
-              </Col>
-              <Col>
-              <img src={lazo} width="400" height="100" className="d-inline-block" alt="Logo"/>
-              </Col> 
-              <Col  className='pt-3' >   
-              <a href={urlFacebook}  className="text-decoration-none"><img width={40} height={40} alt="facebook" src={facebook} /> </a>
-              <a href={urlInstagram}  className="text-decoration-none"><img width={40} height={40} alt="instagram" src={instagram} /> </a>
-              <a href={urlTwitter}  className="text-decoration-none"><img width={40} height={40} alt="twitter" src={twitter} /> </a>
-              <img src={tarjetas} width="150" height="30" className="d-inline-block align-top" alt="Logo"/>
-              </Col>
+    <div className="bg-dark text-bg-dark ps-5">  
+        <Box sx={{ flexGrow: 1 ,}}>
+        <Grid container spacing={{ xs: 2, md: 3, lg: 5 }} 
+              columns={{ md: 2, lg: 6}} 
+              display="flex" 
+              justifyContent="center">
+          <Grid item md={2}  >
+                <Typography level="body3"><EmailIcon color="success" fontSize="large"  /> contacto@venezzia.cl </Typography>
+                <Typography level="body3"><CallIcon  fontSize="large"  /> Whatsapp: +569 3251 3550 </Typography>
+                <Typography level="body2"><AccessTimeIcon color="error" fontSize="large"  /> Abierto de lunes a Domingo</Typography> 
+                </Grid> 
 
-
-
-          </Row> 
+          <Grid item md={2}  > 
+     
+                <Link href={urlFacebook} target="_blank"><FacebookIcon color="success" fontSize="large"  />  </Link>
+                <Link href={urlInstagram} target="_blank"><InstagramIcon color="success" fontSize="large"  />  </Link>
+                <Link href={urlTwitter} target="_blank"><TwitterIcon color="error" fontSize="large"  /> </Link>
+          </Grid>
+          <Grid item md={2}  >
+                <img src={lazo} width="500" height="120" className="d-inline-block" alt="Logo"/>
+                </Grid>    
+        </Grid>    
+      </Box>
     </div>
   )
 }
