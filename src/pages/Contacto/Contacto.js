@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
 import { db } from "../../config/Firebase";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import Separador from '../../pages/Separador/Separador';
  
 import { TextField,Button  } from '@mui/material';
@@ -12,6 +12,7 @@ import { TextField,Button  } from '@mui/material';
 function Contacto () {
 
     const initContacto = {
+        id: '',
         nombre: '',
         correo: '',
         telefono: '',
@@ -32,22 +33,23 @@ function Contacto () {
   }
 
 
-       const registrarContacto = async(e) => {
-        e.preventDefault()
+
+ 
+ 
+    const registrarContacto = async(e) => {
+        e.preventDefault();
+        let hoy= new Date();
+        let clave=hoy.toISOString();
+        
         try {
-            const collectionRef = collection(db, 'Contactos')
-            await addDoc(collectionRef, {
-                contacto
-            })
+             await setDoc(doc(db, "Contactos", clave), {contacto
+            });
         } catch (error) {
             console.log(error)
         } 
         console.log(contacto); 
         setContacto(initContacto);
     } 
- 
-        
-
     return (
         <div>
             <div className="bg-dark text-bg-dark pb-2 ps-5  text-center">

@@ -7,50 +7,40 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Separador from '../../Separador/Separador';
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 150 },
+  { field: 'id', headerName: 'ID', width: 200 },
   { field: 'nombre',headerName: 'Nombre', editable: false, width: 200,},
-  { field: 'correo', headerName: 'Correo', editable: false, width: 100,},
+  { field: 'correo', headerName: 'Correo', editable: false, width: 200,},
   { field: 'telefono', headerName: 'Telefono', editable: false, width: 100,},
   { field: 'asunto', headerName: 'Asunto', editable: false, width: 100,},
-  { field: 'mensaje', headerName: 'Mensaje', editable: false, width: 300,},
+  { field: 'mensaje', headerName: 'Mensaje', editable: false, width: 400,},
 ];
-
-const fila = 
-{ id: '',
-  nombre: '',
-  correo: '',
-  telefono: '',
-  asunto: '',
-  mensaje: ''
-}
-
-let docs = [];
-export default function Contactosadm() {
-let rows=[];
-  //const [rows, setRows] = useState([]);
-  useEffect(() => {
-    const getRows = async () => {
-      try {
-        const collectionRef = collection(db, "Contactos");
-        const response = await getDocs(collectionRef);
-         rows=response.docs.map((doc) => {
-          fila.id = doc.id;
-          fila.asunto = doc.data().contacto.asunto;
-          fila.nombre = doc.data().contacto.nombre;
-          fila.correo = doc.data().contacto.correo;
-          fila.telefono = doc.data().contacto.telefono;
-          fila.mensaje = doc.data().contacto.mensaje;
-          return(fila);
-        });
-      
-      } catch (error) {
-        console.log(error);
-      }
-    };
  
-    getRows();
-    
-  }, []);
+export default function Contactosadm() {
+ 
+
+const [rows,  setRows] =  useState([]);
+ 
+useEffect(() => {
+  const getRows = async () => {
+    try {
+      const collectionRef = collection(db, "Contactos");
+      const response = await getDocs(collectionRef);
+
+      const docs = response.docs.map((doc) => {
+        const data = doc.data(); 
+        data.contacto.id=doc.id
+        return data.contacto;
+      });
+
+      setRows(docs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getRows();
+  
+}, []);
 
 
 

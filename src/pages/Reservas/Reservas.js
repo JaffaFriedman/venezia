@@ -1,7 +1,6 @@
 import { db } from "../../config/Firebase";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-
+import { doc, setDoc } from "firebase/firestore";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
@@ -22,6 +21,7 @@ let fin= hoy.toISOString().substring(0,10);
 
 
 const initReserva = {
+  id: '',
   restoran: '',
   comensales: '',
   fecha: inicio,
@@ -46,11 +46,11 @@ const  handleInputChange = (e) => {
 
 const registrarReserva = async(e) => {
   e.preventDefault()
+  let hoy= new Date();
+  let clave=hoy.toISOString();
   try {
-      const collectionRef = collection(db, 'Reservas')
-      await addDoc(collectionRef, {
-        reserva
-      })
+        await setDoc(doc(db, "Reservas", clave), {reserva
+       });
   } catch (error) {
       console.log(error)
   } 

@@ -7,28 +7,17 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Separador from '../../Separador/Separador';
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 150 },
+  { field: 'id', headerName: 'ID', width: 200 },
   { field: 'restoran',headerName: 'Restoran',width: 100,editable: false,},
   { field: 'fecha',headerName: 'Fecha', width: 120, editable: false,},
   { field: 'horario', headerName: 'Horario', width: 80,editable: false,},
   { field: 'comensales', headerName: 'Mesa', type: 'number',width: 50, editable: false,},
   { field: 'nombre',headerName: 'Nombre', editable: false, width: 200,},
-  { field: 'correo', headerName: 'Correo', editable: false, width: 100,},
+  { field: 'correo', headerName: 'Correo', editable: false, width: 200,},
   { field: 'telefono', headerName: 'Telefono', editable: false, width: 100,},
   { field: 'mensaje', headerName: 'Mensaje', editable: false, width: 300,},
 ];
 
-const fila = 
-{ id: '',
-  restoran: '',
-  comensales: '',
-  fecha: '',
-  horario: '',
-  nombre: '',
-  correo: '',
-  telefono: '',
-  mensaje: ''
-}
 
 export default function Reservassadm() {
    
@@ -39,16 +28,9 @@ export default function Reservassadm() {
         const collectionRef = collection(db, "Reservas");
         const response = await getDocs(collectionRef);
         const docs = response.docs.map((doc) => {
-          fila.id = doc.id;
-          fila.restoran = doc.data().reserva.restoran;
-          fila.fecha = doc.data().reserva.fecha;
-          fila.horario = doc.data().reserva.horario;
-          fila.nombre = doc.data().reserva.nombre;
-          fila.comensales = doc.data().reserva.comensales;
-          fila.correo = doc.data().reserva.correo;
-          fila.telefono = doc.data().reserva.telefono;
-          fila.mensaje = doc.data().reserva.mensaje;
-          return (fila);
+          const data = doc.data(); 
+          data.reserva.id=doc.id
+          return data.reserva;
         });
 
         setRows(docs);
