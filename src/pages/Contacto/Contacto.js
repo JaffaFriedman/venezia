@@ -4,7 +4,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { db } from "../../config/Firebase";
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-
+import Separador from '../../pages/Separador/Separador';
  
 import { TextField,Button  } from '@mui/material';
  
@@ -50,9 +50,10 @@ function Contacto () {
 
     return (
         <div>
-            <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
+            <div className="bg-dark text-bg-dark pb-2 ps-5  text-center">
             <h3> Formulario de Contacto </h3>
             </div>
+            <Separador />
             <div className="m-5 text-center">
                 <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' },  }}   noValidate autoComplete="off">
                     <TextField name="nombre" label="Nombre" onChange={(e)=>handleInputChange(e)} value={contacto.nombre}  variant="outlined" />

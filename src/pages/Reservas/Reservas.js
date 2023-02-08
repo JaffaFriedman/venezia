@@ -11,6 +11,7 @@ import Select  from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
+import Separador from '../../pages/Separador/Separador';
 const Reservas  = () => {
 
 let hoy= new Date();
@@ -61,11 +62,12 @@ const registrarReserva = async(e) => {
 
 return (
     <div>
-        <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
+        <div className="bg-dark text-bg-dark pb-2 ps-5   text-center">
             <h3> Bienvenido a nuestra página de Reservas </h3>
             <h6>puede realizar su reserva aqui.</h6>
         </div>
         <Box sx={{ flexGrow: 1 ,}}>
+        <Separador />
         <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} columns={{ xs: 1, sm: 1, md: 2, lg: 2 }} display="flex" justifyContent="center">
             <Grid item  >
               <Box component="form" 

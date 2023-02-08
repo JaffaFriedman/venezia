@@ -51,9 +51,9 @@ const Locales  = () => {
       telefono: '+562 5555 7777'},
    ];
   return (
-    <div  className="mb-5">
+    <div  className="mb-5 pb-5">
         <div className="bg-dark text-bg-dark pb-3 ps-5  mb-5 text-center">
-            <h3>Nuestros Locales </h3>
+            <h3>Nuestros Locales </h3>         
         </div>       
         <Container>
             <Row xs={1} md={1} lg={3} xl={3}  className="g-4 "> 

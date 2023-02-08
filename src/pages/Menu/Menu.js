@@ -33,7 +33,7 @@ const Menu = ({categoria, setCategoria}) => {
             <Row xs={1} md={2} lg={3} className="g-4 text-center">  
         { categoriaMenu.map((p)=>
         ( <Col>    
-            <Card style={{ width: '20rem' }}>
+            <Card style={{ width: '20rem', height: '20rem' }}>
             <Card.Img variant="top" src={p.url}  height={'240'}/>
             <Card.Body>
               <Card.Text>

@@ -73,14 +73,14 @@ function Platos({categoria} ) {
     return (
       <div>
         <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
-          <h1>Menu de {categoria}</h1>
+          <h3>Menú de {categoria}</h3>
         </div>
       <Container >
 
-      <Row xs={2} md={3} lg={4} className="g-4 text-center" >  
+      <Row xs={1}sm={1} md={2} lg={3} xl={4} className="g-4 text-center" >  
       { listaPlatos.filter((c) =>  c.categoria===categoria.toString()).map((p)=> 
       ( <Col key={p.id}>
-          <Card style={{ width: '18rem', height: '20rem'} }>
+          <Card style={{ width: '17rem', height: '20rem'} }>
           <Card.Img    variant="dark" src={p.url}  height={'200'}  />
           <Card.Body   >
             <Card.Text>{p.descripcion}</Card.Text>

@@ -76,8 +76,8 @@ const itemData = [
 
 const Nosotros = () => {
   return (
-    <div>
-        <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
+    <div className="mb-5">
+        <div className="bg-dark text-bg-dark pb-2 mb-5 ps-5  mb-1 text-center">
             <h3> Sobre Nosotros </h3>
         </div>
         <Box sx={{ flexGrow: 1 ,}}>

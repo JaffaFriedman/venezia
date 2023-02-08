@@ -1,17 +1,16 @@
 
 import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
-import  Chef from '../../images/navigation/Chef.png'
-
+import lazo from '../../images/footer/lazo.png';
 const  Navigation = () => {
   return (
   <div className="bg-dark ps-5">
         <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="/">
                     <img
-                      src={Chef}
-                      width="70"
-                      height="70"
+                      src={lazo}
+                      width="200"
+                      height="50"
                       className="d-inline-block align-top"
                       alt="Logo"
                     />
