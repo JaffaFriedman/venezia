@@ -47,7 +47,7 @@ useEffect(() => {
   return (
     <div>
     <div className="bg-dark text-bg-dark pb-2 ps-5 text-center">
-      <h2>Lista de Reservas</h2>
+      <h2>Lista de Contactos</h2>
     </div>
     <Separador />
     <Box sx={{ height: 400, width: '100%' , 

@@ -49,7 +49,7 @@ const registrarReserva = async(e) => {
   let hoy= new Date();
   let clave=hoy.toISOString();
   try {
-        await setDoc(doc(db, "Reservas", clave), {reserva
+        await setDoc(doc(db, "Reservas", clave), {...reserva
        });
   } catch (error) {
       console.log(error)
@@ -89,13 +89,13 @@ return (
                   <Select native defaultValue="" name="comensales"  onChange={(e)=>handleInputChange(e)} value={reserva.comensales} label="Grouping">
                   <option aria-label="None" value="" />
                     <optgroup label="Seleccione el número de personas">
-                      <option value={'2'}>2 Personas</option>
-                      <option value={'3'}>3 Personas</option>
-                      <option value={'4'}>4 Personas</option>
-                      <option value={'5'}>5 Personas</option>
-                      <option value={'6'}>6 Personas</option>
-                      <option value={'7'}>7 Personas</option>
-                      <option value={'8'}>8 Personas</option>  
+                      <option value={2}>2 Personas</option>
+                      <option value={3}>3 Personas</option>
+                      <option value={4}>4 Personas</option>
+                      <option value={5}>5 Personas</option>
+                      <option value={6}>6 Personas</option>
+                      <option value={7}>7 Personas</option>
+                      <option value={8}>8 Personas</option>  
                       </optgroup>                   
                   </Select>
                 </FormControl>

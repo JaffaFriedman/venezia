@@ -6,6 +6,10 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Separador from '../../Separador/Separador';
 
+
+
+
+
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 200 },
   { field: 'restoran',headerName: 'Restoran',width: 100,editable: false,},
@@ -44,13 +48,13 @@ export default function Reservassadm() {
   }, []);
 
 
-
   return (
     <div>
     <div className="bg-dark text-bg-dark pb-2 ps-5 text-center">
       <h2>Lista de Reservas</h2>
     </div>
     <Separador />
+
     <Box sx={{ height: 400, width: '100%' , 
         '& .MuiDataGrid-cell:hover': {
           color: 'primary.main',
