@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../../config/Firebase'
 import { collection, getDocs } from "firebase/firestore";
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridToolbar  } from '@mui/x-data-grid';
 import Separador from '../../Separador/Separador';
 
 const columns: GridColDef[] = [
@@ -16,33 +16,24 @@ const columns: GridColDef[] = [
 ];
  
 export default function Contactosadm() {
- 
-
-const [rows,  setRows] =  useState([]);
- 
-useEffect(() => {
-  const getRows = async () => {
-    try {
-      const collectionRef = collection(db, "Contactos");
-      const response = await getDocs(collectionRef);
-
-      const docs = response.docs.map((doc) => {
-        const data = doc.data(); 
-        data.contacto.id=doc.id
-        return data.contacto;
-      });
-
-      setRows(docs);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  getRows();
-  
-}, []);
-
-
+  const [rows, setRows] = useState([]);
+  useEffect(() => {
+    let q = collection(db, "Contactos");    
+      const getRows = async () => {
+        try {
+            const response = await getDocs(q);
+            const docs = response.docs.map((doc) => {
+            const data = doc.data(); 
+            data.id=doc.id
+            return data ;
+          });
+        setRows(docs);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRows();
+  }, []);
 
   return (
     <div>
@@ -54,7 +45,6 @@ useEffect(() => {
         '& .MuiDataGrid-cell:hover': {
           color: 'primary.main',
         },}}>
-
       <DataGrid
         rows={rows}
         columns={columns}
@@ -62,6 +52,7 @@ useEffect(() => {
         rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
+        components={{ Toolbar: GridToolbar }}
         experimentalFeatures={{ newEditingApi: true }}
       />
     </Box>

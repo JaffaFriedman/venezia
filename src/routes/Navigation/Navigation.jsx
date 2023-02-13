@@ -24,8 +24,12 @@ const  Navigation = () => {
                     <Nav.Link as={NavLink} to="/reservas">Reservas</Nav.Link>
                     <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
                     <NavDropdown title='Admin'> 
-                      <NavDropdown.Item as={NavLink} to="/reservasadm">Revisar Reservas</NavDropdown.Item>
                       <NavDropdown.Item as={NavLink} to="/contactosadm">Contactos</NavDropdown.Item>
+                          <NavDropdown.Divider />
+                           <NavDropdown.Item as={NavLink} to="/reservasadm">Revisar Reservas</NavDropdown.Item>
+                          <NavDropdown.Item as={NavLink} to="/reservashoy">Reservas de hoy</NavDropdown.Item>
+                          <NavDropdown.Item as={NavLink} to="/reservasmod">Actualizar reserva</NavDropdown.Item>
+                          <NavDropdown.Divider />
                       <NavDropdown.Item as={NavLink} to="/prueba">Prueba </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>

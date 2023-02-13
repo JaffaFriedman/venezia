@@ -10,6 +10,8 @@ import Contacto from '../../pages/Contacto/Contacto';
 import Prueba from '../../pages/Prueba/Prueba';
 import Contactosadm from '../../pages/Admin/Contactosadm/Contactosadm';
 import Reservasadm from '../../pages/Admin/Reservasadm/Reservasadm';
+import Reservasmod from '../../pages/Admin/Reservasmod/Reservasmod';
+import Reservashoy from '../../pages/Admin/Reservashoy/Reservashoy';
 
 import { useState } from 'react';
 
@@ -29,6 +31,8 @@ function Rutas() {
             <Route path='/prueba' element={<Prueba />} />  
             <Route path='/contactosadm' element={<Contactosadm />} />  
             <Route path='/reservasadm' element={<Reservasadm />} />  
+            <Route path='/reservashoy' element={<Reservashoy />} />  
+            <Route path='/reservasmod' element={<Reservasmod />} />  
         </Route>
       </Routes>
     </div>

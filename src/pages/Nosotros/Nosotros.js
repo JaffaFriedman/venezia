@@ -4,7 +4,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from 'react-bootstrap/Card';
- 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -109,12 +108,16 @@ const Nosotros = () => {
             <Card style={{ width: '32rem'}}>
               <Card.Body   >
               <Card.Title> LA COCINA VENECIANA </Card.Title>
-              <Card.Text>  
-                  <p>Es tradicional, sencilla y se basa en los productos que ofrece la laguna: pescado, hortalizas y carnes. Pero, a estos productos, se une una influencia oriental en el uso de las especias (nuez moscada, canela, pimienta) y en la gran variedad de arroces. </p>
-                  <p>La gastronomía veneciana es una de las más variadas de Italia, gracias a las múltiples influencias que la han enriquecido a lo largo de los siglos. Los sabores del mar y de la tierra se unen para crear recetas con un sabor único, que logran sorprender hasta los paladares más refinados. Por lo tanto, hoy recomendamos 12 platos que comer en nuestro restoran, tu eliges los que más te estimulen y nos cuentas los que más te han gustado.</p>
-                  <p>Nuestros exquisitos platos han ganado muchos premios gastrómicos. Contamos con una variada carta y chefs de prestigio internacional.</p>
-              </Card.Text>
-                  </Card.Body>
+                <Card.Text>  
+                    Es tradicional, sencilla y se basa en los productos que ofrece la laguna: pescado, hortalizas y carnes. Pero, a estos productos, se une una influencia oriental en el uso de las especias (nuez moscada, canela, pimienta) y en la gran variedad de arroces. 
+                </Card.Text>
+                <Card.Text> 
+                    La gastronomía veneciana es una de las más variadas de Italia, gracias a las múltiples influencias que la han enriquecido a lo largo de los siglos. Los sabores del mar y de la tierra se unen para crear recetas con un sabor único, que logran sorprender hasta los paladares más refinados. Por lo tanto, hoy recomendamos 12 platos que comer en nuestro restoran, tu eliges los que más te estimulen y nos cuentas los que más te han gustado.
+                </Card.Text>
+                <Card.Text> 
+                    Nuestros exquisitos platos han ganado muchos premios gastrómicos. Contamos con una variada carta y chefs de prestigio internacional.
+                </Card.Text>
+              </Card.Body>
               </Card>
             </Grid> 
         </Grid> 

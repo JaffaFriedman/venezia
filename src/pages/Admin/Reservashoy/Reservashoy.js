@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { db } from '../../config/Firebase'
+import { db } from '../../../config/Firebase'
 import { DataGrid, GridColDef  } from '@mui/x-data-grid';
-import Separador from '../../pages/Separador/Separador';
+import Separador from '../../Separador/Separador';
 import { FormControl, InputLabel, Select, Button, Box } from '@mui/material';
 import { collection, query, where, getDocs /*,  doc, setDoc */ } from "firebase/firestore";
  
-export default function Prueba() {
+export default function Reservashoy() {
   const fechahoy = new Date();
   const fechaMin = fechahoy.toISOString().substring(0,10);
   fechahoy.setDate(fechahoy.getDate() + 60);

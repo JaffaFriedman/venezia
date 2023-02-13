@@ -3,12 +3,8 @@ import { useState, useEffect } from 'react';
 import { db } from '../../../config/Firebase'
 import { collection, getDocs } from "firebase/firestore";
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef,GridToolbar  } from '@mui/x-data-grid';
 import Separador from '../../Separador/Separador';
-
-
-
-
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 200 },
@@ -19,32 +15,27 @@ const columns: GridColDef[] = [
   { field: 'nombre',headerName: 'Nombre', editable: false, width: 200,},
   { field: 'correo', headerName: 'Correo', editable: false, width: 200,},
   { field: 'telefono', headerName: 'Telefono', editable: false, width: 100,},
-  { field: 'mensaje', headerName: 'Mensaje', editable: false, width: 300,},
+  { field: 'mensaje', headerName: 'Mensaje', editable: false, width: 400,},
 ];
 
-
 export default function Reservassadm() {
-   
   const [rows, setRows] = useState([]);
   useEffect(() => {
-    const getRows = async () => {
-      try {
-        const collectionRef = collection(db, "Reservas");
-        const response = await getDocs(collectionRef);
-        const docs = response.docs.map((doc) => {
-          const data = doc.data(); 
-          data.reserva.id=doc.id
-          return data.reserva;
-        });
-
+    let q = collection(db, "Reservas");    
+      const getRows = async () => {
+        try {
+            const response = await getDocs(q);
+            const docs = response.docs.map((doc) => {
+            const data = doc.data(); 
+            data.id=doc.id
+            return data ;
+          });
         setRows(docs);
       } catch (error) {
         console.log(error);
       }
     };
-
     getRows();
-    
   }, []);
 
 
@@ -59,7 +50,6 @@ export default function Reservassadm() {
         '& .MuiDataGrid-cell:hover': {
           color: 'primary.main',
         },}}>
-
       <DataGrid
         rows={rows}
         columns={columns}
@@ -67,6 +57,7 @@ export default function Reservassadm() {
         rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
+        components={{ Toolbar: GridToolbar }}
         experimentalFeatures={{ newEditingApi: true }}
       />
     </Box>

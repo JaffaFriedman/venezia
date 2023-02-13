@@ -17,9 +17,9 @@ const Home = () => {
             <h1> RISTORANTI VENEZIA </h1>
          </div> 
         <Carousel className="bg-dark text-bg-dark pb-2 ps-5 " >
-        { urls.map((p)=>
+        { urls.map((p,idx)=>
           ( 
-            <Carousel.Item>
+            <Carousel.Item p={p} key={idx}>
           <img
               className="d-block w-auto justify-content-center ps-5"
               style={{ height: '550px' }}

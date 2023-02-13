@@ -57,14 +57,13 @@ const Locales  = () => {
         </div>       
         <Container>
             <Row xs={1} md={1} lg={3} xl={3}  className="g-4 "> 
-            { restaurantes.map((p)=>(
-                <Col sx={{ width: 500 }}>   
-                    <Card variant="outlined"  >
+            { restaurantes.map((p,idx)=>(
+                <Col sx={{ width: 500 }} p={p} key={idx}>   
+                    <Card variant="outlined"  p={p} key={idx}>
                       <Typography level="h1" fontSize="lg" sx={{ mb: 0.5 }}>
                         {p.nombre}
                       </Typography>
                       <Typography level="h1"> {p.direccion}</Typography>
-                     
                           <AspectRatio minHeight="120px" maxHeight="250px" sx={{ my: 2 }}>
                             <img
                               src= {p.imagen}
