@@ -1,11 +1,10 @@
- 
 import { useState } from "react";
- 
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Select  from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { db } from '../../../config/Firebase'
@@ -14,58 +13,72 @@ import Separador from '../../Separador/Separador';
 import SearchIcon from '@mui/icons-material/Search';
 import SaveAsIcon from '@mui/icons-material/SaveAs';
 import DeleteIcon from '@mui/icons-material/Delete';
-function validar(nombre,correo,telefono,restoran,comensales,fecha,horario)
-{  
-  if (!restoran)  { 
-    alert("Le falta ingresar el restoran")  
-    return false  }
-  if (!comensales)  { 
-      alert("Le falta ingresar la cantidad de personas")  
-      return false  }
-  if (!fecha)  { 
-        alert("Le falta ingresar la fecha de la reserva")  
-        return false  }
-  if (!horario)  { 
-          alert("Le falta ingresar la hora de la reserva")  
-          return false  }
-  if (!nombre)  { 
-       alert("Le falta ingresar el nombre")  
-       return false  }
-  if (!correo)  { 
-       alert("Le falta ingresar el correo")  
-       return false  }
-  if (!telefono)  { 
-        alert("Le falta ingresar el telefono")  
-        return false  }
-   if (!validaCorreo(correo))  { 
-        alert("Formato de Correo inválido, debe tener una @, al menos 1 caracter despues de @, luego un punto y al menos un caracter despues del punto")  
-        return false  }
-   if (!telefono)   { 
-       alert("Debe ingresar el teléfono")
-        return false  }       
-   if (telefono.length<7){ 
-           alert("Al teléfono le faltan digitos, el largo minimo es 7")
-           return false  }  
-   if (telefono.length>9){ 
-           alert("Al teléfono le sobran digitos, el largo maximo es 9")
-           return false  }  
 
-   return true
-}
-function validaCorreo(correo)
-{ const i= correo.indexOf("@")
-  const k= correo.lastIndexOf("@")
-  const j= correo.lastIndexOf(".") 
-   if(i!==k) //mas de 1 @
-    return false
-  if (i < 1 ) // no hay nada antes de la @
-     return false
-  if (j <= i+1 || j>=correo.length-1)  // no tiene un punto despues de la @ o no tiene nada despues del punto
-     return false
-  return true
-}
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '1px solid #000',
+  p: 4,
+};
+
+
 
 const Reservasmod  = () => {
+ 
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => setOpen(false);
+  const [mensaje, setMensaje] = React.useState('');
+  const [mensaje2, setMensaje2] = React.useState('');
+  const [titulo, setTitulo] = React.useState('success');
+  const desplegarMensaje = (mensaje,titulo,mensaje2) => {
+    setMensaje(mensaje);
+    setMensaje2(mensaje2);
+    setTitulo(titulo);
+    setOpen(true);
+  };
+
+
+  function validar(nombre,correo,telefono,restoran,comensales,fecha,horario)
+  {  
+    let textoMensaje="";
+    if (!restoran) textoMensaje="Le falta ingresar el restoran"; 
+    if (!comensales) textoMensaje = textoMensaje!=="" ? textoMensaje+ ", cantidad de personas" : "Le falta ingresar la cantidad de personas"; 
+    if (!fecha)      textoMensaje = textoMensaje!=="" ? textoMensaje+ ",  la fecha " : "Le falta ingresar la fecha de la reserva";
+    if (!horario)    textoMensaje = textoMensaje!=="" ? textoMensaje+ ", la hora de la reserva" :"Le falta ingresar la hora de la reserva";  
+    if (!nombre)     textoMensaje = textoMensaje!=="" ? textoMensaje+ ", el nombre" : "Le falta ingresar el nombre"; 
+    if (!correo)     textoMensaje = textoMensaje!=="" ? textoMensaje+ ", el correo" :"Le falta ingresar el correo"; 
+    if (!telefono)   textoMensaje  = textoMensaje!=="" ? textoMensaje+ ", el teléfono" :"Le falta ingresar el teléfono";        
+    if (!validaCorreo(correo))  textoMensaje  = textoMensaje!=="" ? textoMensaje+". Además el formato de Correo es inválido, debe tener una @, al menos 1 caracter despues de @, luego un punto y al menos un caracter despues del punto" : "Formato de Correo inválido, debe tener una @, al menos 1 caracter despues de @, luego un punto y al menos un caracter despues del punto";
+    if (telefono.length<7)      textoMensaje  = textoMensaje!=="" ? textoMensaje+". Tambien al teléfono le faltan digitos, el largo minimo es 7" : "Al teléfono le faltan digitos, el largo minimo es 7";
+    if (telefono.length>9)      textoMensaje  = textoMensaje!=="" ? textoMensaje+". Tambien al teléfono le sobran digitos, el largo maximo es 9" : "Al teléfono le sobran digitos, el largo maximo es 9";
+    if ( textoMensaje==="")        
+        return true;
+    else desplegarMensaje(textoMensaje, "Se han encontrado los siguientes errores:", "Por favor corregir y actualizar nuevamente.") ;
+    return false;
+  }
+  function validaCorreo(correo)
+  { const i= correo.indexOf("@")
+    const k= correo.lastIndexOf("@")
+    const j= correo.lastIndexOf(".") 
+     if(i!==k) //mas de 1 @
+      return false
+    if (i < 1 ) // no hay nada antes de la @
+       return false
+    if (j <= i+1 || j>=correo.length-1)  // no tiene un punto despues de la @ o no tiene nada despues del punto
+       return false
+    return true
+  }
+  
+  
+
   const fechahoy = new Date();
   const fechaMin = fechahoy.toISOString().substring(0,10);
   fechahoy.setDate(fechahoy.getDate() + 60);
@@ -112,8 +125,7 @@ const recuperarReserva = async () => {
       });
       setReserva(docs[0]);
     }
-    else alert('No existe reserva para '+correo)
-
+    else desplegarMensaje('Revise el correo ingresado y consulte nuevamente.', "NO EXISTE RESERVA.",'') ;
     } catch (error) {
       console.log(error);
        
@@ -122,7 +134,6 @@ const recuperarReserva = async () => {
   
   const borrarReserva = async () => {
       
-  
       try {
         await deleteDoc(doc(db,"Reservas",reserva.id));
          } catch (error) {
@@ -260,10 +271,26 @@ return (
                     </Button>  
                   </Box>
             </Grid>            
-
-
         </Grid>
         </Box>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} borderRadius={5} borderColor="error">
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {titulo}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              {mensaje}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              {mensaje2}
+            </Typography>         
+          </Box>
+     </Modal>
     </div>
   )
 }
