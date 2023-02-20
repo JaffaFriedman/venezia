@@ -28,9 +28,7 @@ const  Navigation = () => {
                           <NavDropdown.Divider />
                            <NavDropdown.Item as={NavLink} to="/reservasadm">Revisar Reservas</NavDropdown.Item>
                           <NavDropdown.Item as={NavLink} to="/reservashoy">Reservas de hoy</NavDropdown.Item>
-                          <NavDropdown.Item as={NavLink} to="/reservasmod">Actualizar reserva</NavDropdown.Item>
-                          <NavDropdown.Divider />
-                      <NavDropdown.Item as={NavLink} to="/prueba">Prueba </NavDropdown.Item>
+                          <NavDropdown.Item as={NavLink} to="/reservasmod">Actualizar Reserva</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
               </Navbar.Collapse>

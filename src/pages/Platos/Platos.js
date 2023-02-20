@@ -18,15 +18,16 @@ let listaPlatos=[
   {id: 11,categoria: 'Carnes y Pescados', descripcion: 'Carne grillada', precio: '$16.000', url: '/platos/carnes/CARNES01.jpg'},
   {id: 12,categoria: 'Carnes y Pescados', descripcion: 'Filete al oporto', precio: '$16.500', url: '/platos/carnes/CARNES08.jpg'},
   {id: 13,categoria: 'Carnes y Pescados', descripcion: 'Cordero asado con salsa de tomate y verduras frescas', precio: '$15.000', url: '/platos/carnes/CARNES03.jpg'},
-  {id: 14,categoria: 'Carnes y Pescados', descripcion: 'Pato con verduras y papas', precio: '$14.000', url: '/platos/carnes/CARNES02.jpg'},
-  {id: 15,categoria: 'Carnes y Pescados', descripcion: 'Pato con pure de papas', precio: '$14.500', url: '/platos/carnes/CARNES10.jpg'},
-  {id: 16,categoria: 'Carnes y Pescados', descripcion: 'Pechuga de pollo con ensalada mixta', precio: '$12.500', url: '/platos/carnes/CARNES09.jpg'},
-  {id: 17,categoria: 'Carnes y Pescados', descripcion: 'Pollo a la parrilla', precio: '$12.000', url: '/platos/carnes/CARNES05.jpg'},
-  {id: 18,categoria: 'Carnes y Pescados', descripcion: 'Pollo a la parrilla con ensalada verde', precio: '$11.000', url: '/platos/carnes/CARNES04.jpg'},
-  {id: 21,categoria: 'Carnes y Pescados', descripcion: 'Salmon grillado con verduras', precio: '$14.000', url: '/platos/carnes/CARNES11.jpg'},
+  {id: 24,categoria: 'Carnes y Pescados', descripcion: 'Cordero con costra a la italiana', precio: '$13.000', url: '/platos/carnes/CARNES12.jpg'},
+  {id: 15,categoria: 'Carnes y Pescados', descripcion: 'Pato con verduras y papas', precio: '$14.000', url: '/platos/carnes/CARNES02.jpg'},
+  {id: 16,categoria: 'Carnes y Pescados', descripcion: 'Pato con pure de papas', precio: '$14.500', url: '/platos/carnes/CARNES10.jpg'},
+  {id: 17,categoria: 'Carnes y Pescados', descripcion: 'Pechuga de pollo con ensalada mixta', precio: '$12.500', url: '/platos/carnes/CARNES09.jpg'},
+  {id: 18,categoria: 'Carnes y Pescados', descripcion: 'Pollo a la parrilla', precio: '$12.000', url: '/platos/carnes/CARNES05.jpg'},
+  {id: 19,categoria: 'Carnes y Pescados', descripcion: 'Pollo a la parrilla con ensalada verde', precio: '$11.000', url: '/platos/carnes/CARNES04.jpg'},
+  {id: 20,categoria: 'Carnes y Pescados', descripcion: 'Salmon grillado con verduras', precio: '$14.000', url: '/platos/carnes/CARNES11.jpg'},
   {id: 21,categoria: 'Carnes y Pescados', descripcion: 'Corvina con salsa blanca', precio: '$13.000', url: '/platos/carnes/CARNES06.jpg'},
-  {id: 21,categoria: 'Carnes y Pescados', descripcion: 'Reineta a la plancha con verduras', precio: '$13.000', url: '/platos/carnes/CARNES07.jpg'},
-
+  {id: 22,categoria: 'Carnes y Pescados', descripcion: 'Reineta a la plancha con verduras', precio: '$13.000', url: '/platos/carnes/CARNES07.jpg'},
+ 
   {id: 31,categoria: 'Pastas', descripcion: 'Ravioles de ricota', precio: '$12.000', url: '/platos/pastas/PASTAS01.jpg'},
   {id: 32,categoria: 'Pastas', descripcion: 'Ravioli con salsa boloñesa', precio: '$12.400', url: '/platos/pastas/PASTAS02.jpg'},
   {id: 33,categoria: 'Pastas', descripcion: 'Lasaña con salsa de queso', precio: '$13.500', url: '/platos/pastas/PASTAS03.jpg'},
@@ -51,8 +52,10 @@ let listaPlatos=[
   {id: 52,categoria: 'Vinos y Bebidas', descripcion: 'Botella Vino blanco', precio: '$9.000', url: '/platos/vinos/VINOS05.jpg'},
   {id: 53,categoria: 'Vinos y Bebidas', descripcion: 'Bebidas', precio: '2.000', url: '/platos/vinos/VINOS04.jpg'},
   {id: 54,categoria: 'Vinos y Bebidas', descripcion: 'Jugos de fruta de estación', precio: '$4.000', url: '/platos/vinos/VINOS03.jpg'},
-  {id: 55,categoria: 'Vinos y Bebidas', descripcion: 'Variedes de Café', precio: '$3.000', url: '/platos/vinos/VINOS06.jpg'},
-  {id: 56,categoria: 'Vinos y Bebidas', descripcion: 'Infusiones', precio: '$2.000', url: '/platos/vinos/VINOS02.jpg'},
+  {id: 55,categoria: 'Vinos y Bebidas', descripcion: 'Jugos de verduras', precio: '$4.000', url: '/platos/vinos/VINOS07.jpg'},
+  {id: 56,categoria: 'Vinos y Bebidas', descripcion: 'Variedes de Café', precio: '$3.500', url: '/platos/vinos/VINOS06.jpg'},
+  {id: 57,categoria: 'Vinos y Bebidas', descripcion: 'Infusiones de hierbas', precio: '$3.000', url: '/platos/vinos/VINOS02.jpg'},
+  {id: 58,categoria: 'Vinos y Bebidas', descripcion: 'Te twinings', precio: '$3.000', url: '/platos/vinos/VINOS08.jpg'},
  
 
   {id: 60,categoria: 'Postres', descripcion: 'Cheesecake de berries', precio: '7.000', url: '/platos/postres/POSTRES05.jpg'},
@@ -62,9 +65,11 @@ let listaPlatos=[
   {id: 64,categoria: 'Postres', descripcion: 'Brownie de frutilla', precio: '5.000', url: '/platos/postres/POSTRES07.jpg'},
   {id: 65,categoria: 'Postres', descripcion: 'Mousse de maracuya con berries', precio: '6.000', url: '/platos/postres/POSTRES08.jpg'},
   {id: 66,categoria: 'Postres', descripcion: 'Volcan de chocolate con helado', precio: '8.000', url: '/platos/postres/POSTRES03.jpg'},
-  {id: 67,categoria: 'Postres', descripcion: 'Queue con salsa de miel', precio: '4.000', url: '/platos/postres/POSTRES04.jpg'},
+  {id: 67,categoria: 'Postres', descripcion: 'Queque con salsa de miel', precio: '4.000', url: '/platos/postres/POSTRES04.jpg'},
   {id: 68,categoria: 'Postres', descripcion: 'Torta de chocolate', precio: '6.000', url: '/platos/postres/POSTRES09.jpg'},
   {id: 69,categoria: 'Postres', descripcion: 'Queque de frambuesa', precio: '5.000', url: '/platos/postres/POSTRES06.jpg'},
+  {id: 70,categoria: 'Postres', descripcion: 'Tiramisú de frutos del bosque', precio: '5.000', url: '/platos/postres/POSTRES11.jpg'},
+  {id: 71,categoria: 'Postres', descripcion: 'Panna Cotta', precio: '5.000', url: '/platos/postres/POSTRES12.jpg'},
 ];
 
 

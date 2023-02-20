@@ -7,7 +7,6 @@ import Menu from '../../pages/Menu/Menu';
 import Platos from '../../pages/Platos/Platos';
 import Nosotros from '../../pages/Nosotros/Nosotros';
 import Contacto from '../../pages/Contacto/Contacto';
-import Prueba from '../../pages/Prueba/Prueba';
 import Contactosadm from '../../pages/Admin/Contactosadm/Contactosadm';
 import Reservasadm from '../../pages/Admin/Reservasadm/Reservasadm';
 import Reservasmod from '../../pages/Admin/Reservasmod/Reservasmod';
@@ -28,7 +27,6 @@ function Rutas() {
             <Route path='/locales' element={<Locales />} />  
             <Route path='/nosotros' element={<Nosotros />} />       
             <Route path='/contacto' element={<Contacto />} /> 
-            <Route path='/prueba' element={<Prueba />} />  
             <Route path='/contactosadm' element={<Contactosadm />} />  
             <Route path='/reservasadm' element={<Reservasadm />} />  
             <Route path='/reservashoy' element={<Reservashoy />} />  
