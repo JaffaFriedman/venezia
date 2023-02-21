@@ -5,9 +5,7 @@ const Home = () => {
     {url:'/home/HOME01.png', descripcion:'Gondolas en Venecia'},
     {url:'/home/HOME02.jpg', descripcion:'Ristoranti Manquehue'},
     {url:'/home/HOME03.jpg', descripcion:'Ristoranti Apoquindo'},
-    {url:'/home/HOME01.jpg', descripcion:'Gondolas en Venecia'},
     {url:'/home/HOME04.jpg', descripcion:'Ristoranti El Bosque'},
-    {url:'/home/HOME05.jpg', descripcion:'Ristoranti El Bosque'},
 ];
 
  return (
