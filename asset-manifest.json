@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/venezia/static/css/main.c2cab247.css",
+    "main.js": "/venezia/static/js/main.c289c09d.js",
+    "static/media/lazo.png": "/venezia/static/media/lazo.f9b7aec6548899bc3433.png",
+    "index.html": "/venezia/index.html",
+    "main.c2cab247.css.map": "/venezia/static/css/main.c2cab247.css.map",
+    "main.c289c09d.js.map": "/venezia/static/js/main.c289c09d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.c289c09d.js"
+  ]
+}
