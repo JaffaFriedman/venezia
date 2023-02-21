@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import lazo from '../../images/footer/lazo.png';
 const  Navigation = () => {
   return (
-  <div className="bg-dark ps-5">
+  <header className="bg-dark ps-5">
         <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="/">
                     <img
@@ -33,7 +33,7 @@ const  Navigation = () => {
                 </Nav>
               </Navbar.Collapse>
         </Navbar>
-  </div>
+  </header>
   );
 }
 

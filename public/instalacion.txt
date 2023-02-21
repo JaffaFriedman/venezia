@@ -20,3 +20,16 @@ npm install -g firebase-tools
 
 Por hacer
 To download Node.js visit https://nodejs.org/en/download/.
+
+npm run build
+
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build no se pudo
+
+Find out more about deployment here:
+
+https:/go.microsoft.com/fwlink/?LinkID=135170.

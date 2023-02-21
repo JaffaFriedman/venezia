@@ -75,7 +75,7 @@ const itemData = [
 
 const Nosotros = () => {
   return (
-    <div className="mb-5">
+    <section nosotros className="mb-5">
         <div className="bg-dark text-bg-dark pb-2 mb-5 ps-5  mb-1 text-center">
             <h3> Sobre Nosotros </h3>
         </div>
@@ -123,7 +123,7 @@ const Nosotros = () => {
         </Grid> 
                
       </Box>
-    </div>
+    </section>
   );
 }
 export default Nosotros

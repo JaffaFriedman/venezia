@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 const Home = () => {
  
   let urls=[
-    {url:'/home/HOME01.jpg', descripcion:'Gondolas en Venecia'},
+    {url:'/home/HOME01.png', descripcion:'Gondolas en Venecia'},
     {url:'/home/HOME02.jpg', descripcion:'Ristoranti Manquehue'},
     {url:'/home/HOME03.jpg', descripcion:'Ristoranti Apoquindo'},
     {url:'/home/HOME01.jpg', descripcion:'Gondolas en Venecia'},

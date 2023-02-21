@@ -56,7 +56,7 @@ const registrarReserva = async(e) => {
     } 
 }
 return (
-    <div>
+    <section reservas>
         <div className="bg-dark text-bg-dark pb-2 ps-5   text-center">
             <h3> Bienvenido a nuestra página de Reservas </h3>
             <h6>puede realizar su reserva aqui.</h6>
@@ -157,7 +157,7 @@ return (
 
         </Grid>
         </Box>
-    </div>
+    </section>
   )
 }
 

@@ -25,7 +25,7 @@ const Menu = ({categoria, setCategoria}) => {
     } 
 
     return  (
-      <div>
+      <section menu>
         <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
           <h3> Menú {categoria}</h3>
         </div>
@@ -52,7 +52,7 @@ const Menu = ({categoria, setCategoria}) => {
         }
         </Row>
         </Container>
-        </div>
+        </section>
     )
 }
 

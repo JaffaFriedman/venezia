@@ -49,7 +49,7 @@ function Contacto () {
         }   
    }
     return (
-        <div>
+        <section contacto>
             <div className="bg-dark text-bg-dark pb-2 ps-5  text-center">
             <h3>Formulario de Contacto </h3>
             <h6>Respondemos a la brevedad</h6>
@@ -79,7 +79,7 @@ function Contacto () {
                 </Box>
     
             </div>
-        </div>
+        </section>
     )
 }
 

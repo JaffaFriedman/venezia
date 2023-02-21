@@ -76,7 +76,7 @@ let listaPlatos=[
 function Platos({categoria} ) {
  
     return (
-      <div>
+      <section platos>
         <div className="bg-dark text-bg-dark pb-2 ps-5  mb-1 text-center">
           <h3>Menú de {categoria}</h3>
         </div>
@@ -109,7 +109,7 @@ function Platos({categoria} ) {
                </Button>
            </Box>
       </Container>
-      </div>
+      </section>
     )
 }
 

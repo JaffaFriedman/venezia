@@ -16,7 +16,7 @@ const Footer = () => {
   let urlInstagram="https://www.instagram.com/explore/tags/venezia/";
   let urlTwitter="https://twitter.com/?lang=es";
   return (
-    <div className="bg-dark text-bg-dark mt-5" >  
+    <footer className="bg-dark text-bg-dark mt-5" >  
         <Box sx={{ flexGrow: 1 ,}}>
         <Grid container spacing={{ xs: 2, md: 3, lg: 5 }} 
               columns={{ xs: 2,sm: 2,md: 2, lg: 6 , xl: 6}} 
@@ -37,7 +37,7 @@ const Footer = () => {
         </Grid>    
       </Box>
       <Separador />
-    </div>
+    </footer>
   )
 }
 
