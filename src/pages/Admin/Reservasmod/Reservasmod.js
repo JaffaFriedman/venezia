@@ -133,7 +133,7 @@ return (
             <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} columns={{ xs: 1, sm: 1, md: 2, lg: 2 }} display="flex" justifyContent="center">
             <Grid item  >
               <Box component="form" 
-                      sx={{ '& > :not(style)': { m: 1, width: '50ch' }, 
+                      sx={{ '& > :not(style)': { m: 1, width: '40ch' }, 
                       display: 'flex', flexDirection: 'column', alignItems: 'center', }}   noValidate autoComplete="off">
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                   <InputLabel htmlFor="restoran-select">Restoran</InputLabel>
@@ -190,17 +190,17 @@ return (
                 </Box>
             </Grid>
             <Grid item >
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch', marginTop: 2,}   }}   
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch', marginTop: 2,}   }}   
                     noValidate autoComplete="off">
                     <TextField name="nombre" required label="Nombre" variant="outlined"  
                     onChange={(e)=>handleChange(e)} value={reserva.nombre}  />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' },  }}   
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}   
                     noValidate autoComplete="off">
                     <TextField name="telefono" required type="number" label="teléfono" variant="outlined" 
                     onChange={(e)=>handleChange(e)} value={reserva.telefono}  />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' }   }}   >
                     <TextField name="mensaje" label="Mensaje" variant="outlined"  multiline rows={8}
                     onChange={(e)=>handleChange(e)} value={reserva.mensaje}  />
                 </Box>

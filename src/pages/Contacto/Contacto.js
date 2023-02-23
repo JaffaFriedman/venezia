@@ -56,20 +56,22 @@ function Contacto () {
             </div>
             <Separador />
             <div className="m-5 text-center">
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' },  }}   Validate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}   Validate autoComplete="off">
                     <TextField name="nombre"  required label="Nombre"  type='text'  placeholder="Nombre" onChange={(e)=>handleInputChange(e)} value={contacto.nombre}  variant="outlined" />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '39ch' },  }}  Validate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}  Validate autoComplete="off">
                     <TextField name="correo" required type="email"  placeholder="Correo Electrónico"  label="Correo Electronico" onChange={(e)=>handleInputChange(e)}  value={contacto.correo}  variant="outlined" />
-                    <TextField name="telefono" required type="number"  placeholder="Teléfono"  label="Teléfono" onChange={(e)=>handleInputChange(e)} value={contacto.telefono} variant="outlined" />
+                  </Box>
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}  Validate autoComplete="off">
+                   <TextField name="telefono" required type="number"  placeholder="Teléfono"  label="Teléfono" onChange={(e)=>handleInputChange(e)} value={contacto.telefono} variant="outlined" />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' }   }}   noValidate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' }   }}   noValidate autoComplete="off">
                     <TextField name="asunto" required label="Asunto" type='text'  placeholder="Asunto"  onChange={(e)=>handleInputChange(e)} value={contacto.asunto}   variant="outlined" />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '80ch' }   }}   noValidate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' }   }}   noValidate autoComplete="off">
                     <TextField name="mensaje" label="Mensaje" type='text'  placeholder="Mensaje" onChange={(e)=>handleInputChange(e)} value={contacto.mensaje}  variant="outlined"  multiline rows={6}/>
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '30ch' },   }}   noValidate autoComplete="off">
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },   }}   noValidate autoComplete="off">
                     <Button variant="contained"
                         className="mt-3" 
                         color="success"   

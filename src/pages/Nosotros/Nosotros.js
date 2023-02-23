@@ -82,7 +82,7 @@ const Nosotros = () => {
         <Box sx={{ flexGrow: 1 ,}}>
         <Grid container spacing={{ xs: 1, md: 4, lg: 5 }} 
              columns={{ xs: 1, sm: 1, md: 2, lg: 2, xl: 2 }} display="flex" justifyContent="center">
-            <Grid item >
+            <Grid item className="p-5" >
               <ImageList
                 xs={{ width: 400, height: 400 }}
                 sx={{ width: 500, height: 500 }}
@@ -104,8 +104,8 @@ const Nosotros = () => {
                 ))}
               </ImageList>
             </Grid>
-            <Grid item style={{ width: '32rem'}}>
-            <Card style={{ width: '32rem'}}>
+            <Grid item className="p-5" style={{ width: '32rem'}}>
+            <Card  className="p-3" style={{ width: '32rem'}}>
               <Card.Body   >
               <Card.Title> LA COCINA VENECIANA </Card.Title>
                 <Card.Text>  

@@ -3,9 +3,8 @@ const Home = () => {
  
   let urls=[
     {url:'/home/HOME01.png', descripcion:'Gondolas en Venecia'},
-    {url:'/home/HOME02.jpg', descripcion:'Ristoranti Manquehue'},
-    {url:'/home/HOME03.jpg', descripcion:'Ristoranti Apoquindo'},
-    {url:'/home/HOME04.jpg', descripcion:'Ristoranti El Bosque'},
+    {url:'/home/HOME02.png', descripcion:'Ristoranti Manquehue'},
+
 ];
 
  return (
@@ -19,8 +18,7 @@ const Home = () => {
           ( 
             <Carousel.Item p={p} key={idx}>
           <img
-              className="d-block w-auto justify-content-center ps-5"
-              style={{ height: '550px' }}
+              className="d-block w-100 image-responsive justify-content-center ps-5"
               alt={p.descripcion}
               src ={p.url}
             />

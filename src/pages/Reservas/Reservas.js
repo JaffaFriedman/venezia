@@ -70,7 +70,7 @@ return (
 
       <Grid item  className="mt-2" >
               <Box component="form" 
-                      sx={{ '& > :not(style)': { m: 1, width: '30ch' }, 
+                      sx={{ '& > :not(style)': { m: 1, width: '40ch' }, 
                       display: 'flex', flexDirection: 'column', alignItems: 'center', }}   noValidate autoComplete="off">
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                   <InputLabel htmlFor="restoran-select">Restoran</InputLabel>
@@ -127,25 +127,29 @@ return (
                 </Box>
              
         </Grid>
-        <Grid item >
-          
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch', marginTop: 2,}   }}   
+        <Grid item  >       
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch', marginTop: 2,}   }}   
                     noValidate autoComplete="off">
                    <TextField name="nombre" required label="Nombre" variant="outlined"  
                     onChange={(e)=>handleChange(e)} value={reserva.nombre}  />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '24ch' },  }}   
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}   
                     noValidate autoComplete="off">
-                    <TextField name="correo" required label="Correo Electronico" variant="outlined"  
-                      onChange={(e)=>handleChange(e)} value={reserva.correo} />
+ 
                     <TextField name="telefono" required type="number" label="teléfono" variant="outlined" 
                     onChange={(e)=>handleChange(e)} value={reserva.telefono}  />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' },  }}   
+                    noValidate autoComplete="off">
+                    <TextField name="correo" required label="Correo Electronico" variant="outlined"  
+                      onChange={(e)=>handleChange(e)} value={reserva.correo} />
+ 
+                </Box>
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' }   }}   >
                     <TextField name="mensaje" label="Mensaje" variant="outlined"  multiline rows={8}
                     onChange={(e)=>handleChange(e)} value={reserva.mensaje}  />
                 </Box>
-                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' }   }}   >
+                <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '40ch' }   }}   >
                 <Button variant="contained" 
                       color="success"  
                       startIcon={<SaveIcon />}  
