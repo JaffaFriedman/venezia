@@ -35,19 +35,33 @@ npx create-react-app venezia
 y luego instalamos las siguientes librerias con npm:
 
 npm install bootstrap@5.2.3
+
 npm install react-bootstrap bootstrap
+
 npm i react-router-dom
+
 npm install @mui/material @emotion/react @emotion/styled
+
 npm install @mui/joy @emotion/react @emotion/styled
+
 npm install @mui/base
+
 npm install @mui/system @emotion/react @emotion/styled
+
 npm install @mui/x-data-grid
+
 npm install @mui/material @mui/styled-engine-sc styled-components
+
 npm install @fontsource/roboto
+
 npm install @mui/icons-material
+
 npm install @fontsource/public-sans
+
 npm install --save firebase
+
 npm install -g firebase-tools 
+
  
 ## Deploy
 Las aplicaciones se subieron a github y se uso Netlify para el deployment.
