@@ -2,10 +2,14 @@
 
 Este proyecto consiste en una aplicación para un restorant, la idea es probar distintas herramientas. 
 
+![image](https://user-images.githubusercontent.com/112987800/221280527-a5c5bb0a-1326-44f9-b971-31cbd3286eaf.png)
+
+
 La aplicación tiene las siguientes paginas:
 
 ## Aplicación
 La aplicación cuenta con paginas para el cliente final y una sección para la administración del personal. Esto debiera estar con perfiles en una aplicación real,
+
 ### Sección para el cliente final
 Este sitio tiene las siguientes paginas para el cliente final:
 
@@ -15,6 +19,7 @@ Locales, muestra los diferentes locales del restoran y como llegar a ellos.
 Menu tiene distintas categorias de platos (entradas, pastas, carnes, postres, etc). Al seleccionar la categoria  muestra los platos de esas categorias.
 Reservas permite reservar una mesa, desde hoy a 60 dias mas.
 Contacto para dejar un mensaje.
+
 ### Sección de administración
 Sección de administración que permite:
     Revisar los contactos
